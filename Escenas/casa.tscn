@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b72qke20s8cpe"]
+
+[ext_resource type="Texture2D" uid="uid://bi4slcy5ks2mr" path="res://Sprites/sprite test.webp" id="1_mtkcc"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_ycrnb"]
+[ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="3_1gexa"]
+
+[node name="Casa" type="Node2D"]
+scale = Vector2(1.0011, 1.04568)
+
+[node name="Player" type="Sprite2D" parent="."]
+scale = Vector2(0.115272, 0.115272)
+texture = ExtResource("1_mtkcc")
+script = ExtResource("2_ycrnb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_1gexa")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -827.09
+offset_top = -391.133
+offset_right = 826.91
+offset_bottom = -130.133
+theme_override_font_sizes/font_size = 191
+text = "esto se mueveeee"
