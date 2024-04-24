@@ -1679,6 +1679,13 @@ collision_mask = 7
 script = ExtResource("3_61hrs")
 speed = 200
 
+[node name="Zombie2" parent="." instance=ExtResource("2_p76hq")]
+position = Vector2(-684, -160)
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("3_61hrs")
+speed = 200
+
 [node name="Player" parent="." instance=ExtResource("4_e7467")]
 position = Vector2(433, 17)
 

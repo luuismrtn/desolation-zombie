@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_7yliw"]
 [ext_resource type="Texture2D" uid="uid://nwb0a1vaxwtf" path="res://Sprites/kenney_top-down-shooter/PNG/Hitman 1/hitman1_gun.png" id="2_o55cn"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jfl2n"]
-size = Vector2(45, 45)
+[sub_resource type="CircleShape2D" id="CircleShape2D_fr8lq"]
+radius = 22.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 6
@@ -14,4 +14,5 @@ script = ExtResource("1_7yliw")
 texture = ExtResource("2_o55cn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_jfl2n")
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_fr8lq")

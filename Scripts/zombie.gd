@@ -9,7 +9,6 @@ var objetivo
 
 func _ready():
 	objetivo = get_node("../Player")
-	set_physics_process(true)
 	
 func _physics_process(delta):
 	var direction = Vector2()
@@ -22,3 +21,7 @@ func _physics_process(delta):
 	velocity = velocity.lerp(direction * speed, accel * delta)
 	
 	move_and_slide()
+	
+		# Orientar el sprite del zombie hacia el jugador
+	var angle_to_player = direction.angle()
+	rotation = angle_to_player
