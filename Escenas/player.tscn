@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://d07lovjii042w"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_7yliw"]
+[ext_resource type="Texture2D" uid="uid://nwb0a1vaxwtf" path="res://Sprites/kenney_top-down-shooter/PNG/Hitman 1/hitman1_gun.png" id="2_o55cn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jfl2n"]
+size = Vector2(45, 45)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 6
+script = ExtResource("1_7yliw")
+
+[node name="PlayerSkin" type="Sprite2D" parent="."]
+texture = ExtResource("2_o55cn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jfl2n")
