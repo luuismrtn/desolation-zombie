@@ -9,4 +9,4 @@ func _ready():
 
 func _process(delta):
 	# Centrar la cámara en la posición del jugador
-	position = player.position
+		position = player.position

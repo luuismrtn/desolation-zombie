@@ -1,4 +1,4 @@
-extends Sprite2D
+extends CharacterBody2D
 
 # Variables de velocidad del jugador
 var speed = 400
