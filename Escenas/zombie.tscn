@@ -1,14 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://nfef4utaex2p"]
 
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_f4r12"]
+[ext_resource type="Script" path="res://Scripts/Zombie.gd" id="1_8pbgr"]
 [ext_resource type="Texture2D" uid="uid://brlbfj5ebjr11" path="res://Sprites/kenney_top-down-shooter/PNG/Zombie 1/zoimbie1_hold.png" id="2_m0tp5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ksi1s"]
 radius = 16.0078
 
 [node name="Zombie" type="CharacterBody2D"]
+collision_layer = 2
 collision_mask = 6
-script = ExtResource("1_f4r12")
+script = ExtResource("1_8pbgr")
 
 [node name="ZombieSkin" type="Sprite2D" parent="."]
 texture = ExtResource("2_m0tp5")
@@ -18,3 +19,4 @@ position = Vector2(1.5, 0)
 shape = SubResource("CircleShape2D_ksi1s")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1

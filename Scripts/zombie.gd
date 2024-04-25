@@ -8,7 +8,8 @@ var accel = 7
 var objetivo
 
 func _ready():
-	objetivo = get_node("../Player")
+	objetivo = get_tree().root.get_node("/root/Casa/Player")
+
 	
 func _physics_process(delta):
 	var direction = Vector2()
