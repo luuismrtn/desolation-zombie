@@ -23,9 +23,7 @@ func get_input(delta):
 
 func get_rotation_camera():
 	var mouse_position = get_global_mouse_position()
-	
 	var direction_to_mouse = (mouse_position - global_position).normalized()
-
 	var angle_to_mouse = direction_to_mouse.angle()
 
 	rotation = angle_to_mouse
