@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://nfef4utaex2p"]
 
 [ext_resource type="Script" path="res://Scripts/Zombie.gd" id="1_8pbgr"]
-[ext_resource type="Texture2D" uid="uid://brlbfj5ebjr11" path="res://Sprites/kenney_top-down-shooter/PNG/Zombie 1/zoimbie1_hold.png" id="2_m0tp5"]
+[ext_resource type="Texture2D" uid="uid://b6i28gjwrxq2v" path="res://Sprites/Zombi fuerte.png" id="2_xdj87"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ksi1s"]
 radius = 16.0078
@@ -12,7 +12,8 @@ collision_mask = 7
 script = ExtResource("1_8pbgr")
 
 [node name="ZombieSkin" type="Sprite2D" parent="."]
-texture = ExtResource("2_m0tp5")
+rotation = -1.5708
+texture = ExtResource("2_xdj87")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 0)
