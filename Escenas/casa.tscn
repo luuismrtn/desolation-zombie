@@ -1677,6 +1677,7 @@ script = ExtResource("4_g6pxg")
 
 [node name="Timer" type="Timer" parent="ZombieSpawner"]
 wait_time = 2.0
+one_shot = true
 autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

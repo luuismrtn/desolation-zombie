@@ -14,6 +14,7 @@ script = ExtResource("1_8pbgr")
 [node name="ZombieSkin" type="Sprite2D" parent="."]
 rotation = -1.5708
 texture = ExtResource("2_xdj87")
+offset = Vector2(-0.283354, 4.08965)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 0)
@@ -22,3 +23,4 @@ shape = SubResource("CircleShape2D_ksi1s")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 navigation_layers = 3
 path_postprocessing = 1
+debug_enabled = true
