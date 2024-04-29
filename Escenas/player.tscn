@@ -1,45 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://d07lovjii042w"]
 
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_s80hl"]
 [ext_resource type="Texture2D" uid="uid://nwb0a1vaxwtf" path="res://Sprites/kenney_top-down-shooter/PNG/Hitman 1/hitman1_gun.png" id="2_o55cn"]
-
-[sub_resource type="GDScript" id="GDScript_r63pk"]
-script/source = "extends CharacterBody2D
-
-@export var speed = 400
-
-func get_input(delta):
-	var velocity = Vector2.ZERO
-	if Input.is_action_pressed(\"right\"):
-		velocity.x += 1
-	if Input.is_action_pressed(\"left\"):
-		velocity.x -= 1
-	if Input.is_action_pressed(\"down\"):
-		velocity.y += 1
-	if Input.is_action_pressed(\"up\"):
-		velocity.y -= 1
-
-	velocity = velocity.normalized() * speed
-	position += velocity * delta
-
-func get_rotation_camera():
-	var mouse_position = get_global_mouse_position()
-	var direction_to_mouse = (mouse_position - global_position).normalized()
-	var angle_to_mouse = direction_to_mouse.angle()
-
-	rotation = angle_to_mouse
-
-func _physics_process(delta):
-	get_input(delta)
-	get_rotation_camera()
-	move_and_collide(velocity * delta)
-"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fr8lq"]
 radius = 22.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 6
-script = SubResource("GDScript_r63pk")
+script = ExtResource("1_s80hl")
 
 [node name="PlayerSkin" type="Sprite2D" parent="."]
 texture = ExtResource("2_o55cn")
@@ -47,3 +16,7 @@ texture = ExtResource("2_o55cn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_fr8lq")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(24, 9)
+gizmo_extents = 6.5
