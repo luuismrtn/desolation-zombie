@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d07lovjii042w"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_s80hl"]
-[ext_resource type="Texture2D" uid="uid://nwb0a1vaxwtf" path="res://Sprites/kenney_top-down-shooter/PNG/Hitman 1/hitman1_gun.png" id="2_o55cn"]
+[ext_resource type="Texture2D" uid="uid://cqk6g2dqb3otj" path="res://Sprites/Jugador con pistola.png" id="2_ervn2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fr8lq"]
 radius = 22.0
@@ -11,12 +11,13 @@ collision_mask = 6
 script = ExtResource("1_s80hl")
 
 [node name="PlayerSkin" type="Sprite2D" parent="."]
-texture = ExtResource("2_o55cn")
+rotation = -1.5708
+texture = ExtResource("2_ervn2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_fr8lq")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(24, 9)
+position = Vector2(34, 15)
 gizmo_extents = 6.5
