@@ -2,7 +2,13 @@ extends CharacterBody2D
 
 @export var speed = 400
 
+signal life_changed(player_hearts)
+
 const bala_scene = preload("res://Escenas/bala.tscn")
+
+var max_hearts = 3
+var hearts = max_hearts
+var alive = true
 
 func get_input(delta):
 	var velocity = Vector2.ZERO
@@ -38,3 +44,10 @@ func disparar():
 		b.direccion = get_global_mouse_position()-$Marker2D.global_position
 		b.rotation_degrees = rotation_degrees
 		get_parent().add_child(b)
+		
+func damage(dam):
+	hearts -= dam
+	emit_signal("life_changed", hearts)
+	if hearts <= 0:
+		alive = false;
+		
