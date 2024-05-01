@@ -26,3 +26,4 @@ func _physics_process(delta):
 		# Orientar el sprite del zombie hacia el jugador
 	var angle_to_player = direction.angle()
 	rotation = angle_to_player
+	

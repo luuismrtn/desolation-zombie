@@ -14,10 +14,19 @@ script = ExtResource("1_s80hl")
 rotation = -1.5708
 texture = ExtResource("2_ervn2")
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(34, 15)
+gizmo_extents = 6.5
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_fr8lq")
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(34, 15)
-gizmo_extents = 6.5
+[node name="damage_detection" type="Area2D" parent="."]
+collision_mask = 6
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="damage_detection"]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_fr8lq")
+
+[connection signal="body_entered" from="damage_detection" to="." method="_on_damage_detection_body_entered"]

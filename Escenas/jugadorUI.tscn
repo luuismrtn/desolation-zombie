@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://32wuiglya8vk"]
+
+[ext_resource type="Texture2D" uid="uid://bw1f4d1qi0o80" path="res://Sprites/Vidas/BarBackground.png" id="1_f7rkn"]
+[ext_resource type="Script" path="res://jugadorUI.gd" id="1_l67ds"]
+[ext_resource type="Texture2D" uid="uid://b4hmppgxwo82i" path="res://Sprites/Vidas/BarGlass.png" id="2_c3n36"]
+[ext_resource type="Texture2D" uid="uid://xhlk7sra242m" path="res://Sprites/Vidas/RedBar.png" id="3_rg152"]
+[ext_resource type="Texture2D" uid="uid://ce6f8l3xc684v" path="res://Sprites/heart-png-15.png" id="5_uttih"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_l67ds")
+
+[node name="barraVida" type="TextureProgressBar" parent="."]
+offset_left = 63.0
+offset_top = -155.0
+offset_right = 1087.0
+offset_bottom = 869.0
+scale = Vector2(0.565958, 0.565958)
+value = 100.0
+texture_under = ExtResource("1_f7rkn")
+texture_over = ExtResource("2_c3n36")
+texture_progress = ExtResource("3_rg152")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 12.0
+offset_top = 16.0
+offset_right = 332.0
+offset_bottom = 306.0
+scale = Vector2(0.565008, 0.565008)
+texture = ExtResource("5_uttih")

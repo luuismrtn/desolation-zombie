@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
 @export var speed = 400
-
-signal life_changed(player_hearts)
+@export var salud: int = 100
 
 const bala_scene = preload("res://Escenas/bala.tscn")
-
-var max_hearts = 3
-var hearts = max_hearts
-var alive = true
+	
+func _process(delta):
+	get_rotation_camera()
+	disparar()
+	
 
 func get_input(delta):
 	var velocity = Vector2.ZERO
@@ -33,9 +33,8 @@ func get_rotation_camera():
 
 func _physics_process(delta):
 	get_input(delta)
-	get_rotation_camera()
-	disparar()
 	move_and_collide(velocity * delta)
+	
 	
 func disparar():
 	if Input.is_action_just_pressed("disparar"):
@@ -44,10 +43,7 @@ func disparar():
 		b.direccion = get_global_mouse_position()-$Marker2D.global_position
 		b.rotation_degrees = rotation_degrees
 		get_parent().add_child(b)
-		
-func damage(dam):
-	hearts -= dam
-	emit_signal("life_changed", hearts)
-	if hearts <= 0:
-		alive = false;
-		
+
+func _on_damage_detection_body_entered(body):
+	if body.is_in_group("zombie"):
+		salud -= 5
