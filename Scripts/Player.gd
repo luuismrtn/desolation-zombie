@@ -47,3 +47,4 @@ func disparar():
 func _on_damage_detection_body_entered(body):
 	if body.is_in_group("zombie"):
 		salud -= 5
+		body.queue_free()

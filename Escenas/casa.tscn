@@ -1676,7 +1676,6 @@ position = Vector2(-647, -1)
 script = ExtResource("4_g6pxg")
 
 [node name="Timer" type="Timer" parent="ZombieSpawner"]
-wait_time = 2.0
 autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
