@@ -3,6 +3,10 @@ extends CharacterBody2D
 @export var speed = 400
 @export var salud: int = 100
 
+signal score_changed(new_score)
+
+var puntos = 0
+
 const bala_scene = preload("res://Escenas/bala.tscn")
 	
 func _process(delta):
@@ -42,9 +46,14 @@ func disparar():
 		b.global_position = $Marker2D.global_position
 		b.direccion = get_global_mouse_position()-$Marker2D.global_position
 		b.rotation_degrees = rotation_degrees
+		b.hit.connect(updateScore)
 		get_parent().add_child(b)
 
 func _on_damage_detection_body_entered(body):
 	if body.is_in_group("zombie"):
 		salud -= 5
 		body.queue_free()
+
+func updateScore():
+	puntos += 1
+	emit_signal("score_changed", puntos)

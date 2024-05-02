@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://32wuiglya8vk"]
+[gd_scene load_steps=8 format=3 uid="uid://32wuiglya8vk"]
 
 [ext_resource type="Texture2D" uid="uid://bw1f4d1qi0o80" path="res://Sprites/Vidas/BarBackground.png" id="1_f7rkn"]
 [ext_resource type="Script" path="res://Scripts/jugadorUI.gd" id="1_l67ds"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://xhlk7sra242m" path="res://Sprites/Vidas/RedBar.png" id="3_rg152"]
 [ext_resource type="Texture2D" uid="uid://ce6f8l3xc684v" path="res://Sprites/heart-png-15.png" id="5_uttih"]
 [ext_resource type="Texture2D" uid="uid://brwqfxh3jija6" path="res://Sprites/sand_clock.svg" id="6_6yjh4"]
+[ext_resource type="Texture2D" uid="uid://u5gsb6q0t8m3" path="res://Sprites/dead_icon.svg" id="7_uasxq"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_l67ds")
@@ -29,7 +30,7 @@ offset_bottom = 306.0
 scale = Vector2(0.565008, 0.565008)
 texture = ExtResource("5_uttih")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Tiempo" type="HBoxContainer" parent="."]
 offset_left = 1691.0
 offset_top = 7.0
 offset_right = 1860.0
@@ -37,12 +38,12 @@ offset_bottom = 103.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Tiempo"]
 layout_mode = 2
 texture = ExtResource("6_6yjh4")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="Label" type="Label" parent="Tiempo"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 70
@@ -50,7 +51,28 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Timer" type="Timer" parent="HBoxContainer/Label"]
+[node name="Timer" type="Timer" parent="Tiempo/Label"]
 autostart = true
 
-[connection signal="timeout" from="HBoxContainer/Label/Timer" to="." method="_on_timer_timeout"]
+[node name="Puntos" type="HBoxContainer" parent="."]
+offset_left = 1001.0
+offset_top = 7.0
+offset_right = 1170.0
+offset_bottom = 103.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="Puntos"]
+layout_mode = 2
+texture = ExtResource("7_uasxq")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Puntos"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 70
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="Tiempo/Label/Timer" to="." method="_on_timer_timeout"]
