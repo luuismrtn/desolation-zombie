@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://oj7phaej3nyt"]
+
+[ext_resource type="Script" path="res://Escenas/muerte.gd" id="1_prbe6"]
+[ext_resource type="PackedScene" uid="uid://32wuiglya8vk" path="res://Escenas/jugadorUI.tscn" id="2_roxnn"]
+[ext_resource type="PackedScene" uid="uid://b72qke20s8cpe" path="res://Escenas/casa.tscn" id="3_knv8w"]
+
+[node name="Muerte" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_prbe6")
+jugadorUI_scene = ExtResource("2_roxnn")
+casa_scene = ExtResource("3_knv8w")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -152.0
+offset_right = 146.0
+offset_bottom = -83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Puntuación:"
+
+[node name="puntos_actual" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.490104
+anchor_top = 0.437963
+anchor_right = 0.535417
+anchor_bottom = 0.501852
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "0"
+metadata/_edit_use_anchors_ = true

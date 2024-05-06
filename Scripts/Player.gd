@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var salud: int = 100
 
 signal score_changed(new_score)
+signal dead
 
 var puntos = 0
 
@@ -53,6 +54,10 @@ func _on_damage_detection_body_entered(body):
 	if body.is_in_group("zombie"):
 		salud -= 5
 		body.queue_free()
+	
+	if salud <= 0:
+		get_tree().change_scene_to_file("res://Escenas/muerte.tscn")
+		emit_signal("dead")
 
 func updateScore():
 	puntos += 1

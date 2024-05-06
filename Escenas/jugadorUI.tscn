@@ -43,7 +43,7 @@ layout_mode = 2
 texture = ExtResource("6_6yjh4")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="Tiempo"]
+[node name="Tiempo_label" type="Label" parent="Tiempo"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 70
@@ -51,7 +51,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Timer" type="Timer" parent="Tiempo/Label"]
+[node name="Timer" type="Timer" parent="Tiempo/Tiempo_label"]
 autostart = true
 
 [node name="Puntos" type="HBoxContainer" parent="."]
@@ -67,7 +67,7 @@ layout_mode = 2
 texture = ExtResource("7_uasxq")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="Puntos"]
+[node name="Puntos_label" type="Label" parent="Puntos"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 70
@@ -75,4 +75,4 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="timeout" from="Tiempo/Label/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Tiempo/Tiempo_label/Timer" to="." method="_on_timer_timeout"]
