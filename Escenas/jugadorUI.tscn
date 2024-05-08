@@ -9,32 +9,34 @@
 [ext_resource type="Texture2D" uid="uid://u5gsb6q0t8m3" path="res://Sprites/dead_icon.svg" id="7_uasxq"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+offset = Vector2(-3.735, 0)
+transform = Transform2D(1, 0, 0, 1, -3.735, 0)
 script = ExtResource("1_l67ds")
 
 [node name="barraVida" type="TextureProgressBar" parent="."]
-offset_left = 63.0
-offset_top = -155.0
-offset_right = 1087.0
-offset_bottom = 869.0
-scale = Vector2(0.565958, 0.565958)
+offset_left = 39.0
+offset_top = -88.0
+offset_right = 1063.0
+offset_bottom = 936.0
+scale = Vector2(0.41615, 0.39993)
 value = 100.0
 texture_under = ExtResource("1_f7rkn")
 texture_over = ExtResource("2_c3n36")
 texture_progress = ExtResource("3_rg152")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 12.0
-offset_top = 16.0
-offset_right = 332.0
-offset_bottom = 306.0
-scale = Vector2(0.565008, 0.565008)
+offset_left = 26.735
+offset_top = 38.0
+offset_right = 346.735
+offset_bottom = 328.0
+scale = Vector2(0.333414, 0.333414)
 texture = ExtResource("5_uttih")
 
 [node name="Tiempo" type="HBoxContainer" parent="."]
 offset_left = 1691.0
-offset_top = 7.0
+offset_top = 36.0
 offset_right = 1860.0
-offset_bottom = 103.0
+offset_bottom = 132.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -56,9 +58,9 @@ autostart = true
 
 [node name="Puntos" type="HBoxContainer" parent="."]
 offset_left = 1001.0
-offset_top = 7.0
+offset_top = 36.0
 offset_right = 1170.0
-offset_bottom = 103.0
+offset_bottom = 132.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 

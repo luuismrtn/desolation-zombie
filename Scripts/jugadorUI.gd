@@ -1,33 +1,26 @@
 extends CanvasLayer
 
-var segundos: int
-
-var player = get_parent().get_node("Player")
+var player
 var puntuacion: int
 
 func _ready():
-	$barraVida.value = player.salud
-	player.score_changed.connect(_on_score_changed)
-	player.dead.connect(_on_dead)
-	$Puntos/Puntos_label.text = str(player.puntos)
-	$Tiempo/Tiempo_label.text = str(get_parent().segundos)
-	segundos = get_parent().segundos
+	$barraVida.value = Global.vida
+	$Puntos/Puntos_label.text = str(Global.puntos)
+	$Tiempo/Tiempo_label.text = str(Global.segundos)
+	player = get_parent().get_node("Player")
+	player.score_changed.connect(update_score)
+	player.zombie_hit.connect(update_health)
 
 func _on_timer_timeout():
-	if get_parent().segundos > 0:
-		get_parent().segundos -= 1
-		$Tiempo/Tiempo_label.text = str(get_parent().segundos)
+	if Global.segundos > 0:
+		Global.segundos -= 1
+		$Tiempo/Tiempo_label.text = str(Global.segundos)
+	else:
+		get_tree().change_scene_to_file("res://Escenas/muerte.tscn")
 
-func _on_score_changed(new_score):
-	$Puntos/Puntos_label.text = str(new_score)
-	
-func _on_dead():
-	calcularPuntuacion()
-	emit_signal("player_died", puntuacion)
+func update_score():
+	$Puntos/Puntos_label.text = str(Global.puntos)
 
-func calcularPuntuacion():
-	var vida = player.salud
-	var puntos = $Puntos/Puntos_label.text
-	var tiempo = $Tiempo/Tiempo_label.text
-	puntuacion = vida + puntos + tiempo
-	
+func update_health():
+	$barraVida.value = Global.vida
+

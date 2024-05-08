@@ -9,11 +9,11 @@ radius = 268.59
 [node name="Bala" type="CharacterBody2D"]
 scale = Vector2(0.0158472, 0.0158472)
 script = ExtResource("1_61nxu")
-velocidad = 1000
+velocidad = 55000
 
 [node name="Area2D" type="Area2D" parent="." groups=["bala"]]
 collision_layer = 8
-collision_mask = 15
+collision_mask = 7
 
 [node name="Skin" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("1_4pe2a")
@@ -21,5 +21,4 @@ texture = ExtResource("1_4pe2a")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_lwjdk")
 
-[connection signal="hit" from="." to="." method="_on_hit"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

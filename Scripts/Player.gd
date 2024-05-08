@@ -1,12 +1,9 @@
 extends CharacterBody2D
 
 @export var speed = 400
-@export var salud: int = 100
 
-signal score_changed(new_score)
-signal dead
-
-var puntos = 0
+signal score_changed
+signal zombie_hit
 
 const bala_scene = preload("res://Escenas/bala.tscn")
 	
@@ -16,7 +13,7 @@ func _process(delta):
 	
 
 func get_input(delta):
-	var velocity = Vector2.ZERO
+	velocity = Vector2.ZERO
 	if Input.is_action_pressed("right"):
 		velocity.x += 1
 	if Input.is_action_pressed("left"):
@@ -47,18 +44,18 @@ func disparar():
 		b.global_position = $Marker2D.global_position
 		b.direccion = get_global_mouse_position()-$Marker2D.global_position
 		b.rotation_degrees = rotation_degrees
-		b.hit.connect(updateScore)
+		b.hit.connect(update_score)
 		get_parent().add_child(b)
 
 func _on_damage_detection_body_entered(body):
 	if body.is_in_group("zombie"):
-		salud -= 5
+		Global.vida -= 5
 		body.queue_free()
+		emit_signal("zombie_hit")
 	
-	if salud <= 0:
+	if Global.vida <= 0:
 		get_tree().change_scene_to_file("res://Escenas/muerte.tscn")
-		emit_signal("dead")
 
-func updateScore():
-	puntos += 1
-	emit_signal("score_changed", puntos)
+func update_score():
+	Global.puntos += 1
+	emit_signal("score_changed")

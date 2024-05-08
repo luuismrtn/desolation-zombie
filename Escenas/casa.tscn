@@ -1663,7 +1663,6 @@ sources/1 = SubResource("TileSetAtlasSource_wyipy")
 
 [node name="Casa" type="Node2D"]
 script = ExtResource("1_28k6n")
-segundos = 100
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_o15k4")

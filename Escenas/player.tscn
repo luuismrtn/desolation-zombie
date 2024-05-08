@@ -8,8 +8,9 @@ radius = 22.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 6
+input_pickable = true
 script = ExtResource("1_s80hl")
-salud = 5
+speed = 200
 
 [node name="PlayerSkin" type="Sprite2D" parent="."]
 rotation = -1.5708
@@ -20,16 +21,15 @@ position = Vector2(34, 15)
 gizmo_extents = 6.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_fr8lq")
 
 [node name="damage_detection" type="Area2D" parent="."]
 collision_mask = 6
+input_pickable = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="damage_detection"]
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_fr8lq")
 
-[connection signal="area_entered" from="damage_detection" to="." method="_on_damage_detection_area_entered"]
 [connection signal="body_entered" from="damage_detection" to="." method="_on_damage_detection_body_entered"]
