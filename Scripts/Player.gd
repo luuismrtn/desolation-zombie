@@ -1,19 +1,19 @@
 extends CharacterBody2D
 
 @export var speed = 400
+@export var maxAmmo = 10
 
 signal score_changed
 signal zombie_hit
+signal update_ammo
 
 const bala_scene = preload("res://Escenas/bala.tscn")
-const maxAmmo = 10
 
 var ammo = maxAmmo
 	
 func _process(delta):
 	get_rotation_camera()
 	disparar()
-	
 
 func get_input(delta):
 	velocity = Vector2.ZERO
@@ -45,6 +45,7 @@ func disparar():
 	if Input.is_action_just_pressed("disparar"):
 		if(ammo > 0):
 			ammo = ammo - 1
+			emit_signal("update_ammo")
 			var b = bala_scene.instantiate()
 			b.global_position = $Marker2D.global_position
 			b.direccion = get_global_mouse_position()-$Marker2D.global_position
@@ -53,7 +54,7 @@ func disparar():
 			get_parent().add_child(b)
 		else:
 			if($Timer.is_stopped()):
-				$Timer.start(5)
+				$Timer.start(2)
 		
 
 func _on_damage_detection_body_entered(body):
@@ -72,3 +73,4 @@ func update_score():
 
 func _on_timer_timeout():
 	ammo = maxAmmo
+	emit_signal("update_ammo")
