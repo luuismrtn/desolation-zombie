@@ -32,4 +32,9 @@ input_pickable = false
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_fr8lq")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="body_entered" from="damage_detection" to="." method="_on_damage_detection_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

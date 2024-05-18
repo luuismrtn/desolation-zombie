@@ -6,6 +6,9 @@ signal score_changed
 signal zombie_hit
 
 const bala_scene = preload("res://Escenas/bala.tscn")
+const maxAmmo = 10
+
+var ammo = maxAmmo
 	
 func _process(delta):
 	get_rotation_camera()
@@ -40,12 +43,18 @@ func _physics_process(delta):
 	
 func disparar():
 	if Input.is_action_just_pressed("disparar"):
-		var b = bala_scene.instantiate()
-		b.global_position = $Marker2D.global_position
-		b.direccion = get_global_mouse_position()-$Marker2D.global_position
-		b.rotation_degrees = rotation_degrees
-		b.hit.connect(update_score)
-		get_parent().add_child(b)
+		if(ammo > 0):
+			ammo = ammo - 1
+			var b = bala_scene.instantiate()
+			b.global_position = $Marker2D.global_position
+			b.direccion = get_global_mouse_position()-$Marker2D.global_position
+			b.rotation_degrees = rotation_degrees
+			b.hit.connect(update_score)
+			get_parent().add_child(b)
+		else:
+			if($Timer.is_stopped()):
+				$Timer.start(5)
+		
 
 func _on_damage_detection_body_entered(body):
 	if body.is_in_group("zombie"):
@@ -59,3 +68,7 @@ func _on_damage_detection_body_entered(body):
 func update_score():
 	Global.puntos += 1
 	emit_signal("score_changed")
+
+
+func _on_timer_timeout():
+	ammo = maxAmmo
