@@ -1,7 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://d07lovjii042w"]
+[gd_scene load_steps=7 format=3 uid="uid://d07lovjii042w"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_s80hl"]
 [ext_resource type="Texture2D" uid="uid://cqk6g2dqb3otj" path="res://Sprites/Jugador con pistola.png" id="2_ervn2"]
+[ext_resource type="Texture2D" uid="uid://c2gfff2vqdsn0" path="res://Sprites/Jugador pie derecho.png" id="3_nurp0"]
+[ext_resource type="Texture2D" uid="uid://dhrpnp4apiegu" path="res://Sprites/Jugador pie izquierdo.png" id="4_wwi4a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6nmhn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ervn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_nurp0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ervn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wwi4a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fr8lq"]
 radius = 22.0
@@ -14,8 +36,14 @@ speed = 200
 maxAmmo = 20
 
 [node name="PlayerSkin" type="Sprite2D" parent="."]
+visible = false
 rotation = -1.5708
 texture = ExtResource("2_ervn2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_6nmhn")
+frame_progress = 0.525579
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(34, 15)

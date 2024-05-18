@@ -18,13 +18,26 @@ func _process(delta):
 func get_input(delta):
 	velocity = Vector2.ZERO
 	if Input.is_action_pressed("right"):
+		$AnimatedSprite2D.play()
 		velocity.x += 1
 	if Input.is_action_pressed("left"):
+		$AnimatedSprite2D.play()
 		velocity.x -= 1
 	if Input.is_action_pressed("down"):
+		$AnimatedSprite2D.play()
 		velocity.y += 1
 	if Input.is_action_pressed("up"):
+		$AnimatedSprite2D.play()
 		velocity.y -= 1
+		
+	if Input.is_action_just_released("right"):
+		$AnimatedSprite2D.stop()
+	if Input.is_action_just_released("left"):
+		$AnimatedSprite2D.stop()
+	if Input.is_action_just_released("down"):
+		$AnimatedSprite2D.stop()
+	if Input.is_action_just_released("up"):
+		$AnimatedSprite2D.stop()
 
 	velocity = velocity.normalized() * speed
 	position += velocity * delta
