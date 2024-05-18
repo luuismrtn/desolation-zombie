@@ -58,9 +58,9 @@ vertical_alignment = 1
 autostart = true
 
 [node name="Puntos" type="HBoxContainer" parent="."]
-offset_left = 1502.0
+offset_left = 1475.73
 offset_top = 36.0
-offset_right = 1671.0
+offset_right = 1644.73
 offset_bottom = 132.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -79,9 +79,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Ammo" type="HBoxContainer" parent="."]
-offset_left = 1316.0
+offset_left = 1276.73
 offset_top = 36.0
-offset_right = 1485.0
+offset_right = 1445.73
 offset_bottom = 132.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
