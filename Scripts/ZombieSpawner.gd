@@ -2,11 +2,13 @@ extends Node2D
 
 const zombie_scene = preload("res://Escenas/zombie.tscn")
 
-var spawnPoints = [[-810, -240], [810, -240], [810, 240], [-810, 240]]
+var mapa = Global.mapa
+var spawnPoints
 
 var random = RandomNumberGenerator.new()
 
 func _ready():
+	choose_spawnpoint()
 	random.randomize()
 	spawn_zombie()
 
@@ -20,3 +22,9 @@ func spawn_zombie():
 
 func _on_timer_timeout():
 	spawn_zombie()
+	
+func choose_spawnpoint():
+	if mapa == "Bunker":
+		spawnPoints = [[-810, -240], [810, -240], [810, 240], [-810, 240]]
+	elif mapa == "Cabana":	
+		spawnPoints = [[-810, -240], [810, -240], [810, 240], [-810, 240]]

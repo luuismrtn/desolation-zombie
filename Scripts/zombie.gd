@@ -8,7 +8,8 @@ var accel = 7
 var objetivo
 
 func _ready():
-	objetivo = get_tree().root.get_node("/root/Mapa/Player")
+	var mapa = Global.mapa
+	objetivo = get_tree().root.get_node("/root/"+ mapa +"/Player")
 
 	
 func _physics_process(delta):
