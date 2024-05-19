@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d07lovjii042w"]
+[gd_scene load_steps=12 format=3 uid="uid://d07lovjii042w"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_s80hl"]
 [ext_resource type="Texture2D" uid="uid://cqk6g2dqb3otj" path="res://Sprites/Player/Jugador con pistola.png" id="2_4hqbr"]
@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dhrpnp4apiegu" path="res://Sprites/Player/Jugador pie izquierdo.png" id="4_m82al"]
 [ext_resource type="AudioStream" uid="uid://ggvxsg1nqkey" path="res://Sounds/gunshot.mp3" id="5_0amqd"]
 [ext_resource type="AudioStream" uid="uid://b2gwm2aa2qerj" path="res://Sounds/empty-gun.mp3" id="5_s87fx"]
-[ext_resource type="AudioStream" uid="uid://cx6klvscsbg2w" path="res://Sounds/Gmod-TF2 SFX - Concrete Walking Sound Effect (320 kbps).mp3" id="7_p4tte"]
+[ext_resource type="AudioStream" uid="uid://crnqgu0jp5hq4" path="res://Sounds/steps_2.mp3" id="7_36jfi"]
+[ext_resource type="AudioStream" uid="uid://vbbxutapmd1a" path="res://Sounds/hit_sound.mp3" id="8_0stcj"]
 [ext_resource type="Texture2D" uid="uid://b2dx2l7er16le" path="res://Sprites/gunfire.png" id="8_w48dk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6nmhn"]
@@ -80,7 +81,10 @@ volume_db = 5.0
 max_polyphony = 10
 
 [node name="Steps" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_p4tte")
+stream = ExtResource("7_36jfi")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_0stcj")
 
 [node name="Gunfire" type="Sprite2D" parent="."]
 visible = false

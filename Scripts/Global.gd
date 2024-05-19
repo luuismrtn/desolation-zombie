@@ -4,4 +4,6 @@ extends Node
 var puntos = 0
 @export var vida: int = 100
 
-var mapa = "Bunker"
+var maps = ["Bunker", "Cabana"]
+
+var mapa = "Cabana"

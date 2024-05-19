@@ -14,6 +14,8 @@ var ammo = maxAmmo
 func _process(delta):
 	get_rotation_camera()
 	disparar()
+	if Input.is_action_just_pressed("reload"):
+		reload()
 
 func get_input(delta):
 	var velocity = Vector2.ZERO
@@ -59,7 +61,6 @@ func _physics_process(delta):
 	
 func disparar():
 	if Input.is_action_just_pressed("disparar"):
-		
 		if($Timer.is_stopped()):
 			$Gunfire.visible = true
 			$Gunfire/Timer.start(0.1)
@@ -73,14 +74,12 @@ func disparar():
 			b.hit.connect(update_score)
 			get_parent().add_child(b)
 			if ammo == 0:
-				$EmptyGun.play()
-				if($Timer.is_stopped()):
-					$Timer.start(2)
-					return
+				reload()
 
 func _on_damage_detection_body_entered(body):
 	if body.is_in_group("zombie"):
 		Global.vida -= 5
+		$Hit.play()
 		body.queue_free()
 		emit_signal("zombie_hit")
 	
@@ -99,3 +98,9 @@ func _on_timer_timeout():
 
 func _on_timer_timeout_gunfire():
 	$Gunfire.visible = false
+
+func reload():
+	$EmptyGun.play()
+	if($Timer.is_stopped()):
+		$Timer.start(2)
+		return
