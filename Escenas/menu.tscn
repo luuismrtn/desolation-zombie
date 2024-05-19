@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkgwlvki6hpt2"]
+[gd_scene load_steps=5 format=3 uid="uid://bkgwlvki6hpt2"]
 
 [ext_resource type="Theme" uid="uid://cii7bt6xddvwb" path="res://Themes/blue_button.tres" id="1_ma7sm"]
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_rnwd7"]
 [ext_resource type="Texture2D" uid="uid://b5dxhaudlec2m" path="res://UI/main_screen.jpg" id="2_yr2n5"]
+[ext_resource type="AudioStream" uid="uid://dmwco8krhunxo" path="res://Sounds/silentsuspicions.mp3" id="4_bvp4g"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -52,6 +53,10 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_ma7sm")
 text = "SALIR"
+
+[node name="MusicaMenu" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_bvp4g")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]

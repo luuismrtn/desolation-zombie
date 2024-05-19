@@ -4,6 +4,7 @@ var puntuacion: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$MusicaMuerte.play()
 	calcular_puntuacion()
 	$puntos_actual.text = str(puntuacion)
 	

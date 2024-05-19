@@ -10,6 +10,9 @@ signal update_ammo
 const bala_scene = preload("res://Escenas/bala.tscn")
 
 var ammo = maxAmmo
+
+func _ready():
+	$Musica.play()
 	
 func _process(delta):
 	get_rotation_camera()

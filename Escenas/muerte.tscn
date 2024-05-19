@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://oj7phaej3nyt"]
+[gd_scene load_steps=3 format=3 uid="uid://oj7phaej3nyt"]
 
 [ext_resource type="Script" path="res://Scripts/Muerte.gd" id="1_prbe6"]
+[ext_resource type="AudioStream" uid="uid://ba01f724b4nc6" path="res://Sounds/bong.mp3" id="2_sh4ld"]
 
 [node name="Muerte" type="Control"]
 layout_mode = 3
@@ -60,3 +61,6 @@ theme_override_font_sizes/font_size = 50
 text = "0"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="MusicaMuerte" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_sh4ld")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d07lovjii042w"]
+[gd_scene load_steps=13 format=3 uid="uid://d07lovjii042w"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_s80hl"]
 [ext_resource type="Texture2D" uid="uid://cqk6g2dqb3otj" path="res://Sprites/Player/Jugador con pistola.png" id="2_4hqbr"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://crnqgu0jp5hq4" path="res://Sounds/steps_2.mp3" id="7_36jfi"]
 [ext_resource type="AudioStream" uid="uid://vbbxutapmd1a" path="res://Sounds/hit_sound.mp3" id="8_0stcj"]
 [ext_resource type="Texture2D" uid="uid://b2dx2l7er16le" path="res://Sprites/gunfire.png" id="8_w48dk"]
+[ext_resource type="AudioStream" uid="uid://uthyi14o6ssp" path="res://Sounds/epic.mp3" id="9_ylh1j"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6nmhn"]
 animations = [{
@@ -85,6 +86,10 @@ stream = ExtResource("7_36jfi")
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_0stcj")
+
+[node name="Musica" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ylh1j")
+volume_db = -20.0
 
 [node name="Gunfire" type="Sprite2D" parent="."]
 visible = false
