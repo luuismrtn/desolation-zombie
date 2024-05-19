@@ -1,12 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://nfef4utaex2p"]
 
 [ext_resource type="Script" path="res://Scripts/Zombie.gd" id="1_8pbgr"]
-[ext_resource type="Texture2D" uid="uid://b6i28gjwrxq2v" path="res://Sprites/Zombi fuerte.png" id="2_xdj87"]
+[ext_resource type="Texture2D" uid="uid://b6i28gjwrxq2v" path="res://Sprites/Zombie/Zombi fuerte.png" id="2_28p7j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ksi1s"]
 radius = 20.5
 
 [node name="Zombie" type="CharacterBody2D" groups=["zombie"]]
+z_index = 5
+z_as_relative = false
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_8pbgr")
@@ -17,7 +19,7 @@ shape = SubResource("CircleShape2D_ksi1s")
 
 [node name="ZombieSkin" type="Sprite2D" parent="."]
 rotation = -1.5708
-texture = ExtResource("2_xdj87")
+texture = ExtResource("2_28p7j")
 offset = Vector2(-0.283354, 4.08965)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

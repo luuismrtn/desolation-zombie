@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 400
-@export var maxAmmo = 10
+@export var maxAmmo = 20
 
 signal score_changed
 signal zombie_hit

@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://32wuiglya8vk"]
 
-[ext_resource type="Texture2D" uid="uid://bw1f4d1qi0o80" path="res://Sprites/Vidas/BarBackground.png" id="1_f7rkn"]
-[ext_resource type="Script" path="res://Scripts/jugadorUI.gd" id="1_l67ds"]
-[ext_resource type="Texture2D" uid="uid://b4hmppgxwo82i" path="res://Sprites/Vidas/BarGlass.png" id="2_c3n36"]
-[ext_resource type="Texture2D" uid="uid://xhlk7sra242m" path="res://Sprites/Vidas/RedBar.png" id="3_rg152"]
-[ext_resource type="Texture2D" uid="uid://ce6f8l3xc684v" path="res://Sprites/heart-png-15.png" id="5_uttih"]
-[ext_resource type="Texture2D" uid="uid://brwqfxh3jija6" path="res://Sprites/sand_clock.svg" id="6_6yjh4"]
-[ext_resource type="Texture2D" uid="uid://u5gsb6q0t8m3" path="res://Sprites/dead_icon.svg" id="7_uasxq"]
-[ext_resource type="Texture2D" uid="uid://cxpqkrpwuvijf" path="res://Sprites/Ammo-removebg-preview.png" id="8_ll3rf"]
+[ext_resource type="Script" path="res://Scripts/JugadorUI.gd" id="1_l67ds"]
+[ext_resource type="Texture2D" uid="uid://bw1f4d1qi0o80" path="res://Sprites/Lifes/BarBackground.png" id="2_t50ng"]
+[ext_resource type="Texture2D" uid="uid://b4hmppgxwo82i" path="res://Sprites/Lifes/BarGlass.png" id="3_n5d8v"]
+[ext_resource type="Texture2D" uid="uid://xhlk7sra242m" path="res://Sprites/Lifes/RedBar.png" id="4_r3r5k"]
+[ext_resource type="Texture2D" uid="uid://ce6f8l3xc684v" path="res://Sprites/Lifes/heart.png" id="5_ai347"]
+[ext_resource type="Texture2D" uid="uid://brwqfxh3jija6" path="res://Sprites/Info/sand_clock.svg" id="6_qy2rg"]
+[ext_resource type="Texture2D" uid="uid://u5gsb6q0t8m3" path="res://Sprites/Info/dead_icon.svg" id="7_d15qb"]
+[ext_resource type="Texture2D" uid="uid://cxpqkrpwuvijf" path="res://Sprites/Info/Ammo.png" id="8_mm2in"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 offset = Vector2(-3.735, 0)
@@ -21,9 +21,9 @@ offset_right = 1063.0
 offset_bottom = 936.0
 scale = Vector2(0.41615, 0.39993)
 value = 100.0
-texture_under = ExtResource("1_f7rkn")
-texture_over = ExtResource("2_c3n36")
-texture_progress = ExtResource("3_rg152")
+texture_under = ExtResource("2_t50ng")
+texture_over = ExtResource("3_n5d8v")
+texture_progress = ExtResource("4_r3r5k")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 26.735
@@ -31,22 +31,22 @@ offset_top = 38.0
 offset_right = 346.735
 offset_bottom = 328.0
 scale = Vector2(0.333414, 0.333414)
-texture = ExtResource("5_uttih")
+texture = ExtResource("5_ai347")
 
-[node name="Tiempo" type="HBoxContainer" parent="."]
-offset_left = 1691.0
-offset_top = 36.0
-offset_right = 1860.0
-offset_bottom = 132.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -140.0
+offset_bottom = 296.0
+grow_horizontal = 0
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Tiempo"]
+[node name="Tiempo" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("6_6yjh4")
-expand_mode = 2
+alignment = 2
 
-[node name="Tiempo_label" type="Label" parent="Tiempo"]
+[node name="Tiempo_label" type="Label" parent="VBoxContainer/Tiempo"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 70
@@ -54,23 +54,19 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Timer" type="Timer" parent="Tiempo/Tiempo_label"]
+[node name="Timer" type="Timer" parent="VBoxContainer/Tiempo/Tiempo_label"]
 autostart = true
 
-[node name="Puntos" type="HBoxContainer" parent="."]
-offset_left = 1475.73
-offset_top = 36.0
-offset_right = 1644.73
-offset_bottom = 132.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="TextureRect" type="TextureRect" parent="Puntos"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Tiempo"]
 layout_mode = 2
-texture = ExtResource("7_uasxq")
+texture = ExtResource("6_qy2rg")
 expand_mode = 2
 
-[node name="Puntos_label" type="Label" parent="Puntos"]
+[node name="Puntos" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Puntos_label" type="Label" parent="VBoxContainer/Puntos"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 70
@@ -78,20 +74,16 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Ammo" type="HBoxContainer" parent="."]
-offset_left = 1276.73
-offset_top = 36.0
-offset_right = 1445.73
-offset_bottom = 132.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="TextureRect" type="TextureRect" parent="Ammo"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Puntos"]
 layout_mode = 2
-texture = ExtResource("8_ll3rf")
+texture = ExtResource("7_d15qb")
 expand_mode = 2
 
-[node name="Ammo_label" type="Label" parent="Ammo"]
+[node name="Ammo" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Ammo_label" type="Label" parent="VBoxContainer/Ammo"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 70
@@ -99,4 +91,9 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="timeout" from="Tiempo/Tiempo_label/Timer" to="." method="_on_timer_timeout"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Ammo"]
+layout_mode = 2
+texture = ExtResource("8_mm2in")
+expand_mode = 2
+
+[connection signal="timeout" from="VBoxContainer/Tiempo/Tiempo_label/Timer" to="." method="_on_timer_timeout"]
