@@ -5,6 +5,7 @@ func _ready():
 	randomize()
 
 func _on_jugar_pressed():
+	Global.start()
 	var maps = Global.maps
 	var selected_map = maps[randi() % maps.size()]
 	var scene_path = "res://Escenas/" + selected_map + ".tscn"

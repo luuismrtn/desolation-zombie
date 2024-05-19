@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://crivs5f3l50w"]
+[gd_scene load_steps=6 format=3 uid="uid://crivs5f3l50w"]
 
-[ext_resource type="Script" path="res://Escenas/NextLevel.gd" id="1_4ajup"]
+[ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="1_4ajup"]
 [ext_resource type="Texture2D" uid="uid://bad3c03u5kycd" path="res://Sprites/Drawing-1.sketchpad.png" id="2_cmv04"]
 [ext_resource type="Texture2D" uid="uid://dvem8044sqkp6" path="res://Sprites/NEXT-19-5-2024.png" id="3_q6wvk"]
 [ext_resource type="Texture2D" uid="uid://cnpamnv12gro2" path="res://Sprites/LEVEL-19-5-2024.png" id="4_qlp3u"]
+[ext_resource type="FontFile" uid="uid://we3g4eb260so" path="res://UI/Font/kenvector_future.ttf" id="5_eu1ji"]
 
 [node name="NextLevel" type="Control"]
 layout_mode = 3
@@ -29,3 +30,28 @@ texture = ExtResource("3_q6wvk")
 position = Vector2(2567, 280)
 scale = Vector2(0.863672, 1.03923)
 texture = ExtResource("4_qlp3u")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -355.0
+offset_top = 19.0
+offset_right = 355.0
+offset_bottom = 201.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_eu1ji")
+theme_override_font_sizes/font_size = 161
+text = "ROUND "
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

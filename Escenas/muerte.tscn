@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://oj7phaej3nyt"]
+[gd_scene load_steps=4 format=3 uid="uid://oj7phaej3nyt"]
 
 [ext_resource type="Script" path="res://Scripts/Muerte.gd" id="1_prbe6"]
 [ext_resource type="AudioStream" uid="uid://ba01f724b4nc6" path="res://Sounds/bong.mp3" id="2_sh4ld"]
+[ext_resource type="Texture2D" uid="uid://dys0mbiq5vflx" path="res://UI/game_over_screen.jpg" id="2_xs5ks"]
 
 [node name="Muerte" type="Control"]
 layout_mode = 3
@@ -14,47 +15,33 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_prbe6")
 
-[node name="puntuacion" type="Label" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_xs5ks")
+
+[node name="your_score" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -146.0
-offset_top = -152.0
-offset_right = 146.0
-offset_bottom = -83.0
+anchors_preset = -1
+anchor_left = 0.321354
+anchor_top = 0.435185
+anchor_right = 0.366667
+anchor_bottom = 0.499074
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
-text = "Puntuación:"
+text = "0"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="resultado" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -146.0
-offset_top = -287.0
-offset_right = 146.0
-offset_bottom = -218.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 100
-text = "-"
-horizontal_alignment = 1
-
-[node name="puntos_actual" type="Label" parent="."]
+[node name="best_score" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.490104
-anchor_top = 0.437963
-anchor_right = 0.535417
-anchor_bottom = 0.501852
+anchor_left = 0.628646
+anchor_top = 0.435185
+anchor_right = 0.673959
+anchor_bottom = 0.499074
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50

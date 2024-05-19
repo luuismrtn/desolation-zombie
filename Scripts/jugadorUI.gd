@@ -18,7 +18,8 @@ func _on_timer_timeout():
 		Global.segundos -= 1
 		$VBoxContainer/Tiempo/Tiempo_label.text = str(Global.segundos)
 	else:
-		get_tree().change_scene_to_file("res://Escenas/muerte.tscn")
+		get_tree().change_scene_to_file("res://Escenas/NextLevel.tscn")
+		Global.round += 1 
 
 func update_score():
 	$VBoxContainer/Puntos/Puntos_label.text = str(Global.puntos)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkgwlvki6hpt2"]
+[gd_scene load_steps=6 format=3 uid="uid://bkgwlvki6hpt2"]
 
 [ext_resource type="Theme" uid="uid://cii7bt6xddvwb" path="res://Themes/blue_button.tres" id="1_ma7sm"]
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_rnwd7"]
-[ext_resource type="Texture2D" uid="uid://b5dxhaudlec2m" path="res://UI/main_screen.jpg" id="2_yr2n5"]
+[ext_resource type="Texture2D" uid="uid://dnlot3wp15dj7" path="res://UI/main_screen.png" id="3_gbvjj"]
 [ext_resource type="AudioStream" uid="uid://dmwco8krhunxo" path="res://Sounds/silentsuspicions.mp3" id="4_bvp4g"]
+[ext_resource type="FontFile" uid="uid://we3g4eb260so" path="res://UI/Font/kenvector_future.ttf" id="5_1lc4w"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -24,7 +25,7 @@ script = ExtResource("1_rnwd7")
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("2_yr2n5")
+texture = ExtResource("3_gbvjj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -57,6 +58,17 @@ text = "SALIR"
 [node name="MusicaMenu" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_bvp4g")
 autoplay = true
+
+[node name="best_score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1557.0
+offset_top = 430.0
+offset_right = 1746.0
+offset_bottom = 881.0
+theme_override_fonts/font = ExtResource("5_1lc4w")
+theme_override_font_sizes/font_size = 81
+text = "0"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]
