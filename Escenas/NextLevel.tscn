@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://crivs5f3l50w"]
+
+[ext_resource type="Script" path="res://Escenas/NextLevel.gd" id="1_4ajup"]
+[ext_resource type="Texture2D" uid="uid://bad3c03u5kycd" path="res://Sprites/Drawing-1.sketchpad.png" id="2_cmv04"]
+[ext_resource type="Texture2D" uid="uid://dvem8044sqkp6" path="res://Sprites/NEXT-19-5-2024.png" id="3_q6wvk"]
+[ext_resource type="Texture2D" uid="uid://cnpamnv12gro2" path="res://Sprites/LEVEL-19-5-2024.png" id="4_qlp3u"]
+
+[node name="NextLevel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ajup")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_cmv04")
+
+[node name="Next" type="Sprite2D" parent="."]
+position = Vector2(-362, 145)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_q6wvk")
+
+[node name="Level" type="Sprite2D" parent="."]
+position = Vector2(2567, 280)
+scale = Vector2(0.863672, 1.03923)
+texture = ExtResource("4_qlp3u")
