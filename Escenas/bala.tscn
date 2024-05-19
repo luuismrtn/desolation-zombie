@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://5gg5vyullk0d"]
 
-[ext_resource type="Texture2D" uid="uid://bi4slcy5ks2mr" path="res://Sprites/Player/bala.webp" id="1_4pe2a"]
 [ext_resource type="Script" path="res://Scripts/Bala.gd" id="1_61nxu"]
+[ext_resource type="Texture2D" uid="uid://bapgjwc2e25y2" path="res://Sprites/bullet.png" id="2_aa60r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lwjdk"]
 radius = 268.59
@@ -17,7 +17,9 @@ collision_layer = 8
 collision_mask = 7
 
 [node name="Skin" type="Sprite2D" parent="Area2D"]
-texture = ExtResource("1_4pe2a")
+rotation = 1.5708
+scale = Vector2(15, 15)
+texture = ExtResource("2_aa60r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_lwjdk")

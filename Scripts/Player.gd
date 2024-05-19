@@ -19,25 +19,41 @@ func get_input(delta):
 	velocity = Vector2.ZERO
 	if Input.is_action_pressed("right"):
 		$AnimatedSprite2D.play()
+		if !$Steps.playing:
+			$Steps.play()
 		velocity.x += 1
 	if Input.is_action_pressed("left"):
 		$AnimatedSprite2D.play()
+		if !$Steps.playing:
+			$Steps.play()
 		velocity.x -= 1
 	if Input.is_action_pressed("down"):
 		$AnimatedSprite2D.play()
+		if !$Steps.playing:
+			$Steps.play()
 		velocity.y += 1
 	if Input.is_action_pressed("up"):
 		$AnimatedSprite2D.play()
+		if !$Steps.playing:
+			$Steps.play()
 		velocity.y -= 1
 		
 	if Input.is_action_just_released("right"):
 		$AnimatedSprite2D.stop()
+		if $Steps.playing:
+			$Steps.stop()
 	if Input.is_action_just_released("left"):
 		$AnimatedSprite2D.stop()
+		if $Steps.playing:
+			$Steps.stop()
 	if Input.is_action_just_released("down"):
 		$AnimatedSprite2D.stop()
+		if $Steps.playing:
+			$Steps.stop()
 	if Input.is_action_just_released("up"):
 		$AnimatedSprite2D.stop()
+		if $Steps.playing:
+			$Steps.stop()
 
 	velocity = velocity.normalized() * speed
 	position += velocity * delta
@@ -56,7 +72,11 @@ func _physics_process(delta):
 	
 func disparar():
 	if Input.is_action_just_pressed("disparar"):
+		
 		if(ammo > 0):
+			$Gunfire.visible = true
+			$Gunfire/Timer.start(0.1)
+			$Gunshot.play()
 			ammo = ammo - 1
 			emit_signal("update_ammo")
 			var b = bala_scene.instantiate()
@@ -66,6 +86,7 @@ func disparar():
 			b.hit.connect(update_score)
 			get_parent().add_child(b)
 		else:
+			$EmptyGun.play()
 			if($Timer.is_stopped()):
 				$Timer.start(2)
 		
@@ -87,3 +108,7 @@ func update_score():
 func _on_timer_timeout():
 	ammo = maxAmmo
 	emit_signal("update_ammo")
+
+
+func _on_timer_timeout_gunfire():
+	$Gunfire.visible = false
