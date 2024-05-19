@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 400
+@export var speed: int
 @export var maxAmmo = 20
 
 signal score_changed
@@ -16,41 +16,28 @@ func _process(delta):
 	disparar()
 
 func get_input(delta):
-	velocity = Vector2.ZERO
+	var velocity = Vector2.ZERO
+	var is_moving = false
+
 	if Input.is_action_pressed("right"):
-		$AnimatedSprite2D.play()
-		if !$Steps.playing:
-			$Steps.play()
 		velocity.x += 1
-	if Input.is_action_pressed("left"):
-		$AnimatedSprite2D.play()
-		if !$Steps.playing:
-			$Steps.play()
+		is_moving = true
+	elif Input.is_action_pressed("left"):
 		velocity.x -= 1
+		is_moving = true
+
 	if Input.is_action_pressed("down"):
-		$AnimatedSprite2D.play()
-		if !$Steps.playing:
-			$Steps.play()
 		velocity.y += 1
-	if Input.is_action_pressed("up"):
-		$AnimatedSprite2D.play()
-		if !$Steps.playing:
-			$Steps.play()
+		is_moving = true
+	elif Input.is_action_pressed("up"):
 		velocity.y -= 1
-		
-	if Input.is_action_just_released("right"):
-		$AnimatedSprite2D.stop()
-		if $Steps.playing:
-			$Steps.stop()
-	if Input.is_action_just_released("left"):
-		$AnimatedSprite2D.stop()
-		if $Steps.playing:
-			$Steps.stop()
-	if Input.is_action_just_released("down"):
-		$AnimatedSprite2D.stop()
-		if $Steps.playing:
-			$Steps.stop()
-	if Input.is_action_just_released("up"):
+		is_moving = true
+
+	if is_moving:
+		$AnimatedSprite2D.play()
+		if not $Steps.playing:
+			$Steps.play()
+	else:
 		$AnimatedSprite2D.stop()
 		if $Steps.playing:
 			$Steps.stop()
@@ -73,7 +60,7 @@ func _physics_process(delta):
 func disparar():
 	if Input.is_action_just_pressed("disparar"):
 		
-		if(ammo > 0):
+		if($Timer.is_stopped()):
 			$Gunfire.visible = true
 			$Gunfire/Timer.start(0.1)
 			$Gunshot.play()
@@ -85,11 +72,11 @@ func disparar():
 			b.rotation_degrees = rotation_degrees
 			b.hit.connect(update_score)
 			get_parent().add_child(b)
-		else:
-			$EmptyGun.play()
-			if($Timer.is_stopped()):
-				$Timer.start(2)
-		
+			if ammo == 0:
+				$EmptyGun.play()
+				if($Timer.is_stopped()):
+					$Timer.start(2)
+					return
 
 func _on_damage_detection_body_entered(body):
 	if body.is_in_group("zombie"):

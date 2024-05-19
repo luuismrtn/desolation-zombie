@@ -1,6 +1,6 @@
 extends Node
 
-@export var segundos: int = 100
+@export var segundos: int = 50
 var puntos = 0
 @export var vida: int = 100
 
