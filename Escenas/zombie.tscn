@@ -1,10 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://nfef4utaex2p"]
+[gd_scene load_steps=7 format=3 uid="uid://nfef4utaex2p"]
 
 [ext_resource type="Script" path="res://Scripts/Zombie.gd" id="1_8pbgr"]
-[ext_resource type="Texture2D" uid="uid://b6i28gjwrxq2v" path="res://Sprites/Zombie/Zombi fuerte.png" id="2_28p7j"]
+[ext_resource type="Texture2D" uid="uid://dkjssiv70cqp7" path="res://Sprites/Zombie/Zombi debil.png" id="2_xcglh"]
+[ext_resource type="Texture2D" uid="uid://dxqnn4kvt1fsi" path="res://Sprites/Zombie/Zombi debil pie izquierdo.png.png" id="3_0vylb"]
+[ext_resource type="Texture2D" uid="uid://hh4dts85ai24" path="res://Sprites/Zombie/Zombi debil pie derecho.png.png" id="4_a3y71"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ksi1s"]
 radius = 20.5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hfj4y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xcglh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0vylb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xcglh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a3y71")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Zombie" type="CharacterBody2D" groups=["zombie"]]
 z_index = 5
@@ -19,8 +41,12 @@ shape = SubResource("CircleShape2D_ksi1s")
 
 [node name="ZombieSkin" type="Sprite2D" parent="."]
 rotation = -1.5708
-texture = ExtResource("2_28p7j")
+texture = ExtResource("2_xcglh")
 offset = Vector2(-0.283354, 4.08965)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ZombieSkin"]
+position = Vector2(-1.43051e-05, 4)
+sprite_frames = SubResource("SpriteFrames_hfj4y")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 navigation_layers = 3

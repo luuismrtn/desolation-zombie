@@ -26,6 +26,9 @@ func start():
 	if round == 1:
 		global_points = 0
 	
+	#if(load("user://best_score.save") == null):
+		
+		
 	get_tree().change_scene_to_file(scene_path)
 
 func save_best_score():

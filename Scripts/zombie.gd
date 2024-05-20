@@ -7,7 +7,13 @@ var accel = 7
 
 var objetivo
 
+var fuerte = false
+
 func _ready():
+	if(randf_range(0,1) > 0.7):
+		fuerte = true
+		$ZombieSkin.texture = load("res://Sprites/Zombie/Zombi fuerte.png")
+		$ZombieSkin/AnimatedSprite2D.sprite_frames = load("res://Sprites/Zombie/zombieFuerteWalk.tres")
 	var mapa = Global.mapa
 	objetivo = get_tree().root.get_node("/root/"+ mapa +"/Player")
 
