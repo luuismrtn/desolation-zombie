@@ -89,6 +89,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="death_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_t41r8")
+bus = &"Volume"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -131,9 +132,11 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_rcjhn")
 [node name="Hover" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_3mo41")
 volume_db = 7.924
+bus = &"Volume"
 
 [node name="Pressed" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_bk2t3")
+bus = &"Volume"
 
 [connection signal="focus_entered" from="HBoxContainer/Home" to="." method="_on_home_focus_entered"]
 [connection signal="mouse_entered" from="HBoxContainer/Home" to="." method="_on_home_mouse_entered"]

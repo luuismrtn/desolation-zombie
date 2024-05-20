@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bkgwlvki6hpt2"]
+[gd_scene load_steps=22 format=3 uid="uid://bkgwlvki6hpt2"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_i104q"]
 [ext_resource type="Texture2D" uid="uid://dnlot3wp15dj7" path="res://UI/main_screen.png" id="2_e2lxm"]
@@ -10,6 +10,8 @@
 [ext_resource type="FontFile" uid="uid://we3g4eb260so" path="res://UI/Font/kenvector_future.ttf" id="8_nv7up"]
 [ext_resource type="AudioStream" uid="uid://bay3p4d5ujdfm" path="res://Sounds/Audio/bong_001.ogg" id="9_hdbgr"]
 [ext_resource type="AudioStream" uid="uid://bhawaf4x3xd6h" path="res://Sounds/Audio/confirmation_001.ogg" id="10_piofd"]
+[ext_resource type="Script" path="res://Scripts/volume_slider.gd" id="11_7gj27"]
+[ext_resource type="Texture2D" uid="uid://djfi56hb760rg" path="res://Sprites/Info/volume_icon.svg" id="11_ysvh5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_578n6"]
 texture = ExtResource("3_p7iar")
@@ -28,6 +30,23 @@ texture = ExtResource("6_j2tcm")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rt7vw"]
 texture = ExtResource("6_j2tcm")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lgrf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n10uw"]
+bg_color = Color(0.639216, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yms02"]
+bg_color = Color(0.639216, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -82,6 +101,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_rt7vw")
 [node name="music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_bk1jf")
 autoplay = true
+bus = &"Volume"
 
 [node name="best_score" type="Label" parent="."]
 layout_mode = 0
@@ -97,9 +117,40 @@ horizontal_alignment = 1
 [node name="Hover" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_hdbgr")
 volume_db = 7.924
+bus = &"Volume"
 
 [node name="Pressed" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_piofd")
+bus = &"Volume"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 833.0
+offset_top = 780.0
+offset_right = 1087.0
+offset_bottom = 849.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_ysvh5")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_2lgrf")
+
+[node name="volume_slider" type="HSlider" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_n10uw")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_yms02")
+max_value = 1.0
+step = 0.001
+script = ExtResource("11_7gj27")
+bus_name = "Volume"
 
 [connection signal="focus_entered" from="VBoxContainer/play" to="." method="_on_play_focus_entered"]
 [connection signal="mouse_entered" from="VBoxContainer/play" to="." method="_on_play_mouse_entered"]
