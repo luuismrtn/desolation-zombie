@@ -4,12 +4,12 @@ extends Node
 var pause_menu
 var paused: bool = false
 
-var segundos: int
-var puntos: int
-var vida: int
+var seconds: int
+var points: int
+var health: int
 
 var maps = ["Bunker", "Cottage"]
-var mapa: String
+var map: String
 
 var num_round = 1
 var global_points: int
@@ -24,11 +24,11 @@ func _ready():
 func start():
 	var selected_map = maps[randi() % maps.size()]
 	var scene_path = "res://Scenes/" + selected_map + ".tscn"
-	mapa = selected_map
+	map = selected_map
 	
-	segundos = 20
-	puntos = 0
-	vida = 10
+	seconds = 20
+	points = 0
+	health = 10
 	
 	if num_round == 1:
 		global_points = 0

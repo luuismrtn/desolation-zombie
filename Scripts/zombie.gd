@@ -21,7 +21,7 @@ func _ready():
 		strong = false
 		damage = 5
 		$ZombieSkin.texture = load("res://Sprites/Zombie/Zombi debil.png")
-	target = get_tree().root.get_node("/root/"+ Global.mapa +"/Player")
+	target = get_tree().root.get_node("/root/"+ Global.map +"/Player")
 
 	
 func _physics_process(delta):

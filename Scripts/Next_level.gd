@@ -2,7 +2,7 @@ extends Control
 
 func _ready():
 	$Rounds.text = "Round %s" % Global.num_round
-	Global.global_points += Global.puntos + Global.vida
+	Global.global_points += Global.points + Global.health
 
 func _process(delta):
 	if($"Next".position.x < 828):

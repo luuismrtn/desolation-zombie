@@ -4,7 +4,7 @@ var score: int
 
 func _ready():
 	$death_sound.play()
-	score = Global.puntos + Global.global_points
+	score = Global.points + Global.global_points
 	
 	if (score > Global.best_score):
 		Global.best_score = score
@@ -29,7 +29,6 @@ func _on_exit_pressed():
 
 func _on_exit_mouse_entered():
 	$Hover.play()
-
 
 func _on_exit_focus_entered():
 	$Pressed.play()

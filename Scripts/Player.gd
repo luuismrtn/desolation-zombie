@@ -83,16 +83,16 @@ func disparar():
 
 func _on_damage_detection_body_entered(body):
 	if body.is_in_group("zombie"):
-		Global.vida -= body.damage
+		Global.health -= body.damage
 		$Hit.play()
 		body.queue_free()
 		emit_signal("zombie_hit")
 	
-	if Global.vida <= 0:
+	if Global.health <= 0:
 		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
 func update_score():
-	Global.puntos += 1
+	Global.points += 1
 	emit_signal("score_changed")
 
 
