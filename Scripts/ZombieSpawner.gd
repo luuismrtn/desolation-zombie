@@ -1,17 +1,24 @@
 extends Node2D
 
+## A brief description of the script
+
+## Preload the zombie scene
 const zombie_scene = preload("res://Scenes/zombie.tscn")
 
+## Points of the map where zombies spawn
 var spawnPoints
 
+## Random variable
 var random = RandomNumberGenerator.new()
 
+## A brief description of the script
 func _ready():
 	set_difficulty()
 	choose_spawnpoint()
 	random.randomize()
 	spawn_zombie()
 
+## The below function controls the zombie spawn
 func spawn_zombie():
 	var random_spawnpoint = random.randi_range(0, spawnPoints.size() - 1)
 	var spawn_position = spawnPoints[random_spawnpoint]
@@ -20,15 +27,18 @@ func spawn_zombie():
 	zombie_instance.position = Vector2(spawn_position[0], spawn_position[1])
 	add_child(zombie_instance)
 
+## The below function spawns the zombie
 func _on_timer_timeout():
 	spawn_zombie()
-	
+
+## The below function controls the difficulty
 func set_difficulty():
 	if (Global.num_round < 10):
 		$Timer.wait_time = 1 - Global.num_round * 0.08
 	else:
 		$Timer.wait_time = 1 - 10 * 0.08
-	
+
+## The below function establish the spawn points of each map
 func choose_spawnpoint():
 	if Global.map == "Bunker":
 		spawnPoints = [[-550, -865], [-550, -690], [-550, -500], [-550, -420], [-550, -317], [-550, -100], [-550, 0], [-550, 75], [-550, 250], [-550, 400], [-550, 600],

@@ -1,19 +1,31 @@
 extends CharacterBody2D
 
+## A brief description of the script
+
+## Velocity of the player
 @export var speed: int
+
+## Max ammount of ammo the player has
 @export var max_ammo: int
+
+## Variable ammo
 var ammo
 
+## Player signals
 signal score_changed
 signal zombie_hit
 signal update_ammo
 
+## Preload of the bullet
 const bala_scene = preload("res://Scenes/bullet.tscn")
 
+## Function called when the node is added to the scene
 func _ready():
 	ammo = max_ammo
 	$Music.play()
 	
+
+## The below function controls if the player can or cant move or shoot
 func _process(delta):
 	if not Global.paused:
 		get_rotation_camera()
@@ -22,6 +34,7 @@ func _process(delta):
 			reload()
 	
 
+## The below function controls the movement of the player
 func get_input(delta):
 	velocity = Vector2.ZERO
 	var is_moving = false
@@ -52,6 +65,7 @@ func get_input(delta):
 	velocity = velocity.normalized() * speed
 	position += velocity * delta
 
+## The below function controls the rotation of the camera
 func get_rotation_camera():
 	var mouse_position = get_global_mouse_position()
 	var direction_to_mouse = (mouse_position - global_position).normalized()
@@ -59,11 +73,12 @@ func get_rotation_camera():
 
 	rotation = angle_to_mouse
 
+## the below function controls the physics of the player
 func _physics_process(delta):
 	get_input(delta)
 	move_and_collide(velocity * delta)
-	
-	
+
+## The bellow function controls the shooting
 func disparar():
 	if Input.is_action_just_pressed("disparar"):
 		if($Timer.is_stopped()):
@@ -81,6 +96,7 @@ func disparar():
 			if ammo == 0:
 				reload()
 
+## The below function controls the damage that the player receive
 func _on_damage_detection_body_entered(body):
 	if body.is_in_group("zombie"):
 		Global.health -= body.damage
@@ -91,19 +107,21 @@ func _on_damage_detection_body_entered(body):
 	if Global.health <= 0:
 		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
+## the below function updates the score of the player
 func update_score():
 	Global.points += 1
 	emit_signal("score_changed")
 
-
+## The below function restart the ammo
 func _on_timer_timeout():
 	ammo = max_ammo
 	emit_signal("update_ammo")
 
-
+## The below function hides the gunfire
 func _on_timer_timeout_gunfire():
 	$Gunfire.visible = false
 
+## The below function reload the gun
 func reload():
 	$EmptyGun.play()
 	if($Timer.is_stopped()):
