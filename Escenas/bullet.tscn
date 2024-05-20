@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://5gg5vyullk0d"]
 
-[ext_resource type="Script" path="res://Scripts/Bala.gd" id="1_61nxu"]
-[ext_resource type="Texture2D" uid="uid://bapgjwc2e25y2" path="res://Sprites/bullet.png" id="2_aa60r"]
+[ext_resource type="Script" path="res://Scripts/Bala.gd" id="1_o7yaf"]
+[ext_resource type="Texture2D" uid="uid://bapgjwc2e25y2" path="res://Sprites/bullet.png" id="2_1fq0s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lwjdk"]
 radius = 268.59
 
-[node name="Bala" type="CharacterBody2D"]
+[node name="Bullet" type="CharacterBody2D"]
 z_index = 4
 scale = Vector2(0.0158472, 0.0158472)
-script = ExtResource("1_61nxu")
-velocidad = 55000
+script = ExtResource("1_o7yaf")
+speed = 70000
 
 [node name="Area2D" type="Area2D" parent="." groups=["bala"]]
 collision_layer = 8
@@ -19,7 +19,7 @@ collision_mask = 7
 [node name="Skin" type="Sprite2D" parent="Area2D"]
 rotation = 1.5708
 scale = Vector2(15, 15)
-texture = ExtResource("2_aa60r")
+texture = ExtResource("2_1fq0s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_lwjdk")

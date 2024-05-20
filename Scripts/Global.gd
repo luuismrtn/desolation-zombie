@@ -8,8 +8,8 @@ var segundos: int
 var puntos: int
 var vida: int
 
-var maps = ["Bunker", "Cabana"]
-var mapa = "Cabana"
+var maps = ["Bunker", "Cottage"]
+var mapa = "Cottage"
 
 var num_round = 1
 var global_points: int

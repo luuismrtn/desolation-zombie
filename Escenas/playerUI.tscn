@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://32wuiglya8vk"]
 
-[ext_resource type="Script" path="res://Scripts/JugadorUI.gd" id="1_l67ds"]
+[ext_resource type="Script" path="res://Scripts/PlayerUI.gd" id="1_g207d"]
 [ext_resource type="Texture2D" uid="uid://bw1f4d1qi0o80" path="res://Sprites/Lifes/BarBackground.png" id="2_t50ng"]
 [ext_resource type="Texture2D" uid="uid://b4hmppgxwo82i" path="res://Sprites/Lifes/BarGlass.png" id="3_n5d8v"]
 [ext_resource type="Texture2D" uid="uid://xhlk7sra242m" path="res://Sprites/Lifes/RedBar.png" id="4_r3r5k"]
@@ -9,12 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://u5gsb6q0t8m3" path="res://Sprites/Info/dead_icon.svg" id="7_d15qb"]
 [ext_resource type="Texture2D" uid="uid://cxpqkrpwuvijf" path="res://Sprites/Info/Ammo.png" id="8_mm2in"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="PlayerUI" type="CanvasLayer"]
 offset = Vector2(-3.735, 0)
 transform = Transform2D(1, 0, 0, 1, -3.735, 0)
-script = ExtResource("1_l67ds")
+script = ExtResource("1_g207d")
 
-[node name="barraVida" type="TextureProgressBar" parent="."]
+[node name="health_bar" type="TextureProgressBar" parent="."]
 offset_left = 39.0
 offset_top = -88.0
 offset_right = 1063.0
@@ -25,7 +25,7 @@ texture_under = ExtResource("2_t50ng")
 texture_over = ExtResource("3_n5d8v")
 texture_progress = ExtResource("4_r3r5k")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="hearts" type="TextureRect" parent="."]
 offset_left = 26.735
 offset_top = 38.0
 offset_right = 346.735
@@ -42,11 +42,11 @@ offset_bottom = 296.0
 grow_horizontal = 0
 alignment = 1
 
-[node name="Tiempo" type="HBoxContainer" parent="VBoxContainer"]
+[node name="time" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 alignment = 2
 
-[node name="Tiempo_label" type="Label" parent="VBoxContainer/Tiempo"]
+[node name="time_label" type="Label" parent="VBoxContainer/time"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 70
@@ -54,19 +54,19 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Timer" type="Timer" parent="VBoxContainer/Tiempo/Tiempo_label"]
+[node name="Timer" type="Timer" parent="VBoxContainer/time/time_label"]
 autostart = true
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Tiempo"]
+[node name="sand_clock" type="TextureRect" parent="VBoxContainer/time"]
 layout_mode = 2
 texture = ExtResource("6_qy2rg")
 expand_mode = 2
 
-[node name="Puntos" type="HBoxContainer" parent="VBoxContainer"]
+[node name="score" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 alignment = 2
 
-[node name="Puntos_label" type="Label" parent="VBoxContainer/Puntos"]
+[node name="score_label" type="Label" parent="VBoxContainer/score"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 70
@@ -74,16 +74,16 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Puntos"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/score"]
 layout_mode = 2
 texture = ExtResource("7_d15qb")
 expand_mode = 2
 
-[node name="Ammo" type="HBoxContainer" parent="VBoxContainer"]
+[node name="ammo" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 alignment = 2
 
-[node name="Ammo_label" type="Label" parent="VBoxContainer/Ammo"]
+[node name="ammo_label" type="Label" parent="VBoxContainer/ammo"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 70
@@ -91,9 +91,9 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Ammo"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ammo"]
 layout_mode = 2
 texture = ExtResource("8_mm2in")
 expand_mode = 2
 
-[connection signal="timeout" from="VBoxContainer/Tiempo/Tiempo_label/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="VBoxContainer/time/time_label/Timer" to="." method="_on_timer_timeout"]

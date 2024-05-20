@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
-var direccion: Vector2
+var direction: Vector2
 
 signal hit
 
-@export var velocidad: int
+@export var speed: int
 
 func _physics_process(delta):
-	velocity = direccion.normalized() * velocidad * delta
+	velocity = direction.normalized() * speed * delta
 	move_and_slide()
 
 func _on_area_2d_body_entered(body):

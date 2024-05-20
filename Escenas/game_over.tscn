@@ -1,35 +1,35 @@
 [gd_scene load_steps=17 format=3 uid="uid://oj7phaej3nyt"]
 
-[ext_resource type="Script" path="res://Scripts/Muerte.gd" id="1_prbe6"]
-[ext_resource type="AudioStream" uid="uid://ba01f724b4nc6" path="res://Sounds/bong.mp3" id="2_sh4ld"]
-[ext_resource type="Texture2D" uid="uid://dys0mbiq5vflx" path="res://UI/game_over_screen.jpg" id="2_xs5ks"]
-[ext_resource type="FontFile" uid="uid://we3g4eb260so" path="res://UI/Font/kenvector_future.ttf" id="3_bmkxb"]
-[ext_resource type="Texture2D" uid="uid://1f83gl6kc0u0" path="res://UI/Large Buttons/Colored Large Buttons/New Game  col_Button.png" id="4_fpstf"]
-[ext_resource type="Texture2D" uid="uid://q5usnb5bk66t" path="res://UI/Large Buttons/Large Buttons/New game Button.png" id="5_rgrhb"]
-[ext_resource type="Texture2D" uid="uid://dq1u448ww8w8g" path="res://UI/Large Buttons/Colored Large Buttons/Exit  col_Button.png" id="7_87yd6"]
-[ext_resource type="Texture2D" uid="uid://b3a5j4w16lpuf" path="res://UI/Large Buttons/Large Buttons/Exit Button.png" id="8_fu8cv"]
-[ext_resource type="AudioStream" uid="uid://bay3p4d5ujdfm" path="res://Sounds/Audio/bong_001.ogg" id="9_gi1sy"]
-[ext_resource type="AudioStream" uid="uid://bhawaf4x3xd6h" path="res://Sounds/Audio/confirmation_001.ogg" id="10_m5ltr"]
+[ext_resource type="Script" path="res://Scripts/Game_over.gd" id="1_od2gb"]
+[ext_resource type="Texture2D" uid="uid://dys0mbiq5vflx" path="res://UI/game_over_screen.jpg" id="2_ds6ln"]
+[ext_resource type="FontFile" uid="uid://we3g4eb260so" path="res://UI/Font/kenvector_future.ttf" id="3_dlyps"]
+[ext_resource type="AudioStream" uid="uid://ba01f724b4nc6" path="res://Sounds/bong.mp3" id="4_di4u8"]
+[ext_resource type="Texture2D" uid="uid://1f83gl6kc0u0" path="res://UI/Large Buttons/Colored Large Buttons/New Game  col_Button.png" id="5_vdkgf"]
+[ext_resource type="Texture2D" uid="uid://q5usnb5bk66t" path="res://UI/Large Buttons/Large Buttons/New game Button.png" id="6_gp7fd"]
+[ext_resource type="Texture2D" uid="uid://dq1u448ww8w8g" path="res://UI/Large Buttons/Colored Large Buttons/Exit  col_Button.png" id="7_7xamn"]
+[ext_resource type="Texture2D" uid="uid://b3a5j4w16lpuf" path="res://UI/Large Buttons/Large Buttons/Exit Button.png" id="8_illlr"]
+[ext_resource type="AudioStream" uid="uid://bay3p4d5ujdfm" path="res://Sounds/Audio/bong_001.ogg" id="9_3fmgb"]
+[ext_resource type="AudioStream" uid="uid://bhawaf4x3xd6h" path="res://Sounds/Audio/confirmation_001.ogg" id="10_4y60y"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44224"]
-texture = ExtResource("4_fpstf")
+texture = ExtResource("5_vdkgf")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8bffv"]
-texture = ExtResource("5_rgrhb")
+texture = ExtResource("6_gp7fd")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_835l3"]
-texture = ExtResource("5_rgrhb")
+texture = ExtResource("6_gp7fd")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xdr7n"]
-texture = ExtResource("7_87yd6")
+texture = ExtResource("7_7xamn")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j3nko"]
-texture = ExtResource("8_fu8cv")
+texture = ExtResource("8_illlr")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rcjhn"]
-texture = ExtResource("8_fu8cv")
+texture = ExtResource("8_illlr")
 
-[node name="Muerte" type="Control"]
+[node name="Game Over" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,13 +38,13 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_prbe6")
+script = ExtResource("1_od2gb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("2_xs5ks")
+texture = ExtResource("2_ds6ln")
 
 [node name="your_score" type="Label" parent="."]
 layout_mode = 1
@@ -55,7 +55,7 @@ anchor_right = 0.366667
 anchor_bottom = 0.512963
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_bmkxb")
+theme_override_fonts/font = ExtResource("3_dlyps")
 theme_override_font_sizes/font_size = 50
 text = "0"
 horizontal_alignment = 1
@@ -70,14 +70,14 @@ anchor_right = 0.673959
 anchor_bottom = 0.510185
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_bmkxb")
+theme_override_fonts/font = ExtResource("3_dlyps")
 theme_override_font_sizes/font_size = 50
 text = "0"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="MusicaMuerte" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_sh4ld")
+[node name="death_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_di4u8")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -111,11 +111,11 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_j3nko")
 theme_override_styles/focus = SubResource("StyleBoxTexture_rcjhn")
 
 [node name="Hover" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_gi1sy")
+stream = ExtResource("9_3fmgb")
 volume_db = 7.924
 
 [node name="Pressed" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_m5ltr")
+stream = ExtResource("10_4y60y")
 
 [connection signal="focus_entered" from="HBoxContainer/Restart" to="." method="_on_restart_focus_entered"]
 [connection signal="mouse_entered" from="HBoxContainer/Restart" to="." method="_on_restart_mouse_entered"]

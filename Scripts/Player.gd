@@ -8,7 +8,7 @@ signal score_changed
 signal zombie_hit
 signal update_ammo
 
-const bala_scene = preload("res://Escenas/bala.tscn")
+const bala_scene = preload("res://Escenas/bullet.tscn")
 
 func _ready():
 	ammo = max_ammo
@@ -74,7 +74,7 @@ func disparar():
 			emit_signal("update_ammo")
 			var b = bala_scene.instantiate()
 			b.global_position = $Marker2D.global_position
-			b.direccion = get_global_mouse_position()-$Marker2D.global_position
+			b.direction = get_global_mouse_position()-$Marker2D.global_position
 			b.rotation_degrees = rotation_degrees
 			b.hit.connect(update_score)
 			get_parent().add_child(b)
@@ -83,13 +83,13 @@ func disparar():
 
 func _on_damage_detection_body_entered(body):
 	if body.is_in_group("zombie"):
-		Global.vida -= 5
+		Global.vida -= body.damage
 		$Hit.play()
 		body.queue_free()
 		emit_signal("zombie_hit")
 	
 	if Global.vida <= 0:
-		get_tree().change_scene_to_file("res://Escenas/muerte.tscn")
+		get_tree().change_scene_to_file("res://Escenas/game_over.tscn")
 
 func update_score():
 	Global.puntos += 1
