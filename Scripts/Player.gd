@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 @export var speed: int
-@export var maxAmmo = 20
+@export var max_ammo: int
+var ammo
 
 signal score_changed
 signal zombie_hit
@@ -9,19 +10,20 @@ signal update_ammo
 
 const bala_scene = preload("res://Escenas/bala.tscn")
 
-var ammo = maxAmmo
-
 func _ready():
+	ammo = max_ammo
 	$Musica.play()
 	
 func _process(delta):
-	get_rotation_camera()
-	disparar()
-	if Input.is_action_just_pressed("reload"):
-		reload()
+	if not Global.paused:
+		get_rotation_camera()
+		disparar()
+		if Input.is_action_just_pressed("reload"):
+			reload()
+	
 
 func get_input(delta):
-	var velocity = Vector2.ZERO
+	velocity = Vector2.ZERO
 	var is_moving = false
 
 	if Input.is_action_pressed("right"):
@@ -95,7 +97,7 @@ func update_score():
 
 
 func _on_timer_timeout():
-	ammo = maxAmmo
+	ammo = max_ammo
 	emit_signal("update_ammo")
 
 

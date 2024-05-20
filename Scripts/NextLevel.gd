@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	$Rounds.text = "Round %s" % Global.round
+	$Rounds.text = "Round %s" % Global.num_round
 	Global.global_points += Global.puntos + Global.vida
 
 func _process(delta):
