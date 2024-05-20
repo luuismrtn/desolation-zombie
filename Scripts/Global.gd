@@ -8,16 +8,25 @@ var maps = ["Bunker", "Cabana"]
 var mapa = "Cabana"
 
 var round = 1
-var global_points = 0
-var best_score: int = 0
+var global_points: int
+var best_score: int
 
 func _ready():
 	load_best_score()
 
 func start():
+	var selected_map = maps[randi() % maps.size()]
+	var scene_path = "res://Escenas/" + selected_map + ".tscn"
+	mapa = selected_map
+	
 	segundos = 20
 	puntos = 0
 	vida = 10
+	
+	if round == 1:
+		global_points = 0
+	
+	get_tree().change_scene_to_file(scene_path)
 
 func save_best_score():
 	var save_score = FileAccess.open("user://best_score.save", FileAccess.WRITE)

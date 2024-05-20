@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dbqscc1jovsy0"
+path="res://.godot/imported/glass_002.ogg-93d16cb0c3d5139ec3914ebdf235aa3c.oggvorbisstr"
+
+[deps]
+
+source_file="res://UI/Large Buttons/Colored Large Buttons/Audio/glass_002.ogg"
+dest_files=["res://.godot/imported/glass_002.ogg-93d16cb0c3d5139ec3914ebdf235aa3c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

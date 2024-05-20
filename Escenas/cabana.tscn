@@ -39,6 +39,5 @@ autostart = true
 script = ExtResource("5_cjmfh")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("6_uxu3t")]
-visible = false
 
 [connection signal="timeout" from="ZombieSpawner/Timer" to="ZombieSpawner" method="_on_timer_timeout"]

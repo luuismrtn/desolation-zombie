@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dbexvsi75e46u"
+path="res://.godot/imported/select_007.ogg-ac2759a6272dfbfb997eeca7f8700dfd.oggvorbisstr"
+
+[deps]
+
+source_file="res://UI/Large Buttons/Colored Large Buttons/Audio/select_007.ogg"
+dest_files=["res://.godot/imported/select_007.ogg-ac2759a6272dfbfb997eeca7f8700dfd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

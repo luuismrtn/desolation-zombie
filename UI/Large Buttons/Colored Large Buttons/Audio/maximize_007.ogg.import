@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bw5y1w587y1ph"
+path="res://.godot/imported/maximize_007.ogg-747e742d7291df17aa20811ba40d59ce.oggvorbisstr"
+
+[deps]
+
+source_file="res://UI/Large Buttons/Colored Large Buttons/Audio/maximize_007.ogg"
+dest_files=["res://.godot/imported/maximize_007.ogg-747e742d7291df17aa20811ba40d59ce.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cg8k5c0xottp3"
+path="res://.godot/imported/close_001.ogg-c280096ed9a4090e72f0230637491b87.oggvorbisstr"
+
+[deps]
+
+source_file="res://UI/Large Buttons/Colored Large Buttons/Audio/close_001.ogg"
+dest_files=["res://.godot/imported/close_001.ogg-c280096ed9a4090e72f0230637491b87.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
