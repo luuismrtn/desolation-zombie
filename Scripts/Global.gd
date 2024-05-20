@@ -1,8 +1,10 @@
 extends Node
 
+@onready var pause_menu = $Camera2D/Pause_Menu
 var segundos: int
 var puntos: int
 var vida: int
+var paused = false
 
 var maps = ["Bunker", "Cabana"]
 var mapa = "Cabana"
@@ -40,3 +42,17 @@ func load_best_score():
 	var save_score = FileAccess.open("user://best_score.save", FileAccess.READ)
 	best_score = save_score.get_64()
 	save_score.close()
+	
+func _process(delta):
+	if Input.is_action_just_pressed("pause"):
+		pauseMenu()
+		
+func pauseMenu():
+	if paused:
+		pause_menu.hide()
+		Engine.time_scale = 1
+	else:
+		pause_menu.show()
+		Engine.time_scale = 0
+	
+	paused = !paused

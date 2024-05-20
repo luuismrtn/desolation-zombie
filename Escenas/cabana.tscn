@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://df61ol725jcfl"]
+[gd_scene load_steps=8 format=3 uid="uid://df61ol725jcfl"]
 
 [ext_resource type="Script" path="res://Scripts/Global.gd" id="1_ypglt"]
 [ext_resource type="TileSet" uid="uid://c4gyxak52ljrg" path="res://Sprites/TileSet.tres" id="2_88by7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/ZombieSpawner.gd" id="4_lk1j6"]
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="5_cjmfh"]
 [ext_resource type="PackedScene" uid="uid://32wuiglya8vk" path="res://Escenas/jugadorUI.tscn" id="6_uxu3t"]
+[ext_resource type="PackedScene" uid="uid://dtbx3g4mu3f27" path="res://Escenas/pause.tscn" id="7_hhp4q"]
 
 [node name="Cabana" type="Node2D"]
 script = ExtResource("1_ypglt")
@@ -39,5 +40,11 @@ autostart = true
 script = ExtResource("5_cjmfh")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("6_uxu3t")]
+
+[node name="Pause_Menu" parent="." instance=ExtResource("7_hhp4q")]
+offset_left = 49.0
+offset_top = -215.0
+offset_right = 49.0
+offset_bottom = -215.0
 
 [connection signal="timeout" from="ZombieSpawner/Timer" to="ZombieSpawner" method="_on_timer_timeout"]
