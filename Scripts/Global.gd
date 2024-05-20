@@ -21,7 +21,7 @@ var points: int
 var health: int
 
 ## A list of maps in the game
-var maps = ["Bunker", "Cottage"]
+var maps = ["Bunker", "Cottage", "Home"]
 
 ## The name of the current map
 var map: String
