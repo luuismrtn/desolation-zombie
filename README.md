@@ -18,6 +18,8 @@ Arma de Fuego: El jugador tiene a su disposición una pistola que dispara balas 
 
 Transiciones de Ronda: Al superar una ronda, se muestra una transición llamada "next level". En caso de perder, se muestra una pantalla de "game over".
 
+Aumento dificultad: A medida que avanza cada ronda, el jugador encuentra mas dificil sobrevivir, esto con el objetivo de mejorar la experiencia de juego.
+
 Estructura del Proyecto
 Cabaña: Escena del escenario de la cabaña.
 Bunker: Escena del escenario del bunker.
