@@ -1,44 +1,71 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtbx3g4mu3f27"]
+[gd_scene load_steps=13 format=3 uid="uid://dtbx3g4mu3f27"]
 
 [ext_resource type="Script" path="res://Scripts/Pause.gd" id="1_571x7"]
-[ext_resource type="Texture2D" uid="uid://dq4e2qrxvba0s" path="res://UI/Pause_game.jpg" id="2_3qx80"]
-[ext_resource type="Theme" uid="uid://5slt5i3qxjd7" path="res://Sprites/ButtonTheme/button_theme.tres" id="3_qimeh"]
+[ext_resource type="Texture2D" uid="uid://bd51ckatrangp" path="res://UI/pause_screen.png" id="2_ygtjm"]
+[ext_resource type="Texture2D" uid="uid://bt1a73n56wn7h" path="res://UI/Large Buttons/Large Buttons/Resume Button.png" id="3_ndqex"]
+[ext_resource type="Texture2D" uid="uid://65ogd8o3vx0f" path="res://UI/Large Buttons/Colored Large Buttons/Resume  col_Button.png" id="4_1f2t1"]
+[ext_resource type="Texture2D" uid="uid://c3sod5i1b1jel" path="res://UI/Large Buttons/Large Buttons/Quit Button.png" id="5_jao6g"]
+[ext_resource type="Texture2D" uid="uid://cn7ojrppimgxf" path="res://UI/Large Buttons/Colored Large Buttons/Quit  col_Button.png" id="6_gfwpf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r40ys"]
+texture = ExtResource("3_ndqex")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43pn1"]
+texture = ExtResource("4_1f2t1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4io1e"]
+texture = ExtResource("4_1f2t1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pc5vx"]
+texture = ExtResource("5_jao6g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s0vnb"]
+texture = ExtResource("6_gfwpf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_no8j2"]
+texture = ExtResource("6_gfwpf")
 
 [node name="Pause_Menu" type="CanvasLayer"]
 layer = 6
 script = ExtResource("1_571x7")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_3qx80")
+offset_top = -8.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_ygtjm")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = -1
-anchor_left = 0.486979
-anchor_top = 0.430556
-anchor_right = 0.598958
-anchor_bottom = 0.723148
-offset_left = -271.0
-offset_top = -92.0
-offset_right = 79.0
-offset_bottom = -26.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 814.0
+offset_top = 466.0
+offset_right = -822.0
+offset_bottom = -422.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2.05222, 2.23748)
+pivot_offset = Vector2(141.31, 96.984)
+size_flags_horizontal = 6
+size_flags_vertical = 4
 alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Resume" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme = ExtResource("3_qimeh")
-text = "Resume"
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_r40ys")
+theme_override_styles/hover = SubResource("StyleBoxTexture_43pn1")
+theme_override_styles/focus = SubResource("StyleBoxTexture_4io1e")
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme = ExtResource("3_qimeh")
-text = "Quit"
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_pc5vx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s0vnb")
+theme_override_styles/focus = SubResource("StyleBoxTexture_no8j2")
 
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
