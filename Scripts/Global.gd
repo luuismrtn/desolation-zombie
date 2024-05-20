@@ -50,7 +50,7 @@ func start():
 	
 	seconds = 5
 	points = 0
-	health = 25
+	health = 100
 	
 	if num_round == 1:
 		global_points = 0

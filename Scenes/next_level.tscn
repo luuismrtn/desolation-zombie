@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://crivs5f3l50w"]
+[gd_scene load_steps=7 format=3 uid="uid://crivs5f3l50w"]
 
 [ext_resource type="Script" path="res://Scripts/Next_level.gd" id="1_b5mto"]
 [ext_resource type="Texture2D" uid="uid://bad3c03u5kycd" path="res://Sprites/Drawing-1.sketchpad.png" id="2_g1s4e"]
 [ext_resource type="Texture2D" uid="uid://dvem8044sqkp6" path="res://Sprites/NEXT-19-5-2024.png" id="3_rsi30"]
 [ext_resource type="Texture2D" uid="uid://cnpamnv12gro2" path="res://Sprites/LEVEL-19-5-2024.png" id="4_7rn1h"]
 [ext_resource type="FontFile" uid="uid://we3g4eb260so" path="res://UI/Font/kenvector_future.ttf" id="5_3y8ah"]
+[ext_resource type="AudioStream" uid="uid://bekn4twb6eisd" path="res://Sounds/level_win.mp3" id="6_wq2vv"]
 
 [node name="Next Level" type="Control"]
 layout_mode = 3
@@ -53,5 +54,8 @@ text = "ROUND "
 wait_time = 4.0
 one_shot = true
 autostart = true
+
+[node name="Win" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_wq2vv")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

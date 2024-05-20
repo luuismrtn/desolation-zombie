@@ -32,7 +32,6 @@ func update_score():
 ## The below function updates health
 func update_health():
 	$health_bar.value = Global.health
-	$VBoxContainer/score2/vida.text = str(Global.health)
 
 ## The below function updates ammo
 func update_ammo():

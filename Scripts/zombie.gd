@@ -20,7 +20,7 @@ var round_amp = Global.num_round - 1
 var active = false
 
 ## Zombie damage amount
-var strong_probrability = 0.7 + (round_amp * 0.05)
+var strong_probrability = 0.7 - (round_amp * 0.05)
 
 ## Function called when the node is added to the scene
 func _ready():

@@ -6,6 +6,7 @@ extends Control
 func _ready():
 	$Rounds.text = "Round %s" % Global.num_round
 	Global.global_points += Global.points + Global.health
+	$Win.play()
 
 ## The below function controls the position of the player in the new round
 func _process(delta):
