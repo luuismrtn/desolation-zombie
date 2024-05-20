@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 func _on_resume_pressed():
+	hide()
 	Global.pauseMenu()
 
 
