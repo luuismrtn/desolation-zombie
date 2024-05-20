@@ -41,3 +41,15 @@ func _on_exit_mouse_entered():
 ## The below function controls the button appearance
 func _on_exit_focus_entered():
 	$Pressed.play()
+
+## The below function controls the button appearance
+func _on_home_pressed():
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+
+## The below function controls the button appearance
+func _on_home_mouse_entered():
+	$Hover.play()
+
+## The below function controls the button appearance
+func _on_home_focus_entered():
+	$Pressed.play()
