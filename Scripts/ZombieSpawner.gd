@@ -1,6 +1,6 @@
 extends Node2D
 
-const zombie_scene = preload("res://Escenas/zombie.tscn")
+const zombie_scene = preload("res://Scenes/zombie.tscn")
 
 var mapa = Global.mapa
 var spawnPoints

@@ -8,11 +8,11 @@ signal score_changed
 signal zombie_hit
 signal update_ammo
 
-const bala_scene = preload("res://Escenas/bullet.tscn")
+const bala_scene = preload("res://Scenes/bullet.tscn")
 
 func _ready():
 	ammo = max_ammo
-	$Musica.play()
+	$Music.play()
 	
 func _process(delta):
 	if not Global.paused:
@@ -89,7 +89,7 @@ func _on_damage_detection_body_entered(body):
 		emit_signal("zombie_hit")
 	
 	if Global.vida <= 0:
-		get_tree().change_scene_to_file("res://Escenas/game_over.tscn")
+		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
 func update_score():
 	Global.puntos += 1

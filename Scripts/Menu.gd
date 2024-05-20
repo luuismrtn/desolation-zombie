@@ -1,16 +1,16 @@
 extends Control
 
 func _ready():
-	$MusicaMenu.play()
+	$music.play()
 	$best_score.text = str(Global.best_score)
 
-func _on_jugar_pressed():
+func _on_play_pressed():
 	Global.start()
 	
-func _on_jugar_mouse_entered():
+func _on_play_mouse_entered():
 	$Hover.play()
 	
-func _on_jugar_focus_entered():
+func _on_play_focus_entered():
 	$Pressed.play()
 
 func _on_exit_pressed():

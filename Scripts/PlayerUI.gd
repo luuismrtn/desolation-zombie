@@ -17,7 +17,7 @@ func _on_timer_timeout():
 		Global.segundos -= 1
 		$VBoxContainer/time/time_label.text = str(Global.segundos)
 	else:
-		get_tree().change_scene_to_file("res://Escenas/NextLevel.tscn")
+		get_tree().change_scene_to_file("res://Scenes/next_level.tscn")
 		Global.num_round += 1 
 
 func update_score():

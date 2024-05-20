@@ -1,35 +1,35 @@
 [gd_scene load_steps=6 format=3 uid="uid://crivs5f3l50w"]
 
-[ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="1_4ajup"]
-[ext_resource type="Texture2D" uid="uid://bad3c03u5kycd" path="res://Sprites/Drawing-1.sketchpad.png" id="2_cmv04"]
-[ext_resource type="Texture2D" uid="uid://dvem8044sqkp6" path="res://Sprites/NEXT-19-5-2024.png" id="3_q6wvk"]
-[ext_resource type="Texture2D" uid="uid://cnpamnv12gro2" path="res://Sprites/LEVEL-19-5-2024.png" id="4_qlp3u"]
-[ext_resource type="FontFile" uid="uid://we3g4eb260so" path="res://UI/Font/kenvector_future.ttf" id="5_eu1ji"]
+[ext_resource type="Script" path="res://Scripts/Next_level.gd" id="1_b5mto"]
+[ext_resource type="Texture2D" uid="uid://bad3c03u5kycd" path="res://Sprites/Drawing-1.sketchpad.png" id="2_g1s4e"]
+[ext_resource type="Texture2D" uid="uid://dvem8044sqkp6" path="res://Sprites/NEXT-19-5-2024.png" id="3_rsi30"]
+[ext_resource type="Texture2D" uid="uid://cnpamnv12gro2" path="res://Sprites/LEVEL-19-5-2024.png" id="4_7rn1h"]
+[ext_resource type="FontFile" uid="uid://we3g4eb260so" path="res://UI/Font/kenvector_future.ttf" id="5_3y8ah"]
 
-[node name="NextLevel" type="Control"]
+[node name="Next Level" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_4ajup")
+script = ExtResource("1_b5mto")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_cmv04")
+texture = ExtResource("2_g1s4e")
 
 [node name="Next" type="Sprite2D" parent="."]
 position = Vector2(-362, 145)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("3_q6wvk")
+texture = ExtResource("3_rsi30")
 
 [node name="Level" type="Sprite2D" parent="."]
 position = Vector2(2567, 280)
 scale = Vector2(0.863672, 1.03923)
-texture = ExtResource("4_qlp3u")
+texture = ExtResource("4_7rn1h")
 
 [node name="Rounds" type="Label" parent="."]
 layout_mode = 1
@@ -45,7 +45,7 @@ offset_bottom = 512.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_eu1ji")
+theme_override_fonts/font = ExtResource("5_3y8ah")
 theme_override_font_sizes/font_size = 161
 text = "ROUND "
 

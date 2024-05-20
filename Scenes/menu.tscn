@@ -1,0 +1,109 @@
+[gd_scene load_steps=17 format=3 uid="uid://bkgwlvki6hpt2"]
+
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_i104q"]
+[ext_resource type="Texture2D" uid="uid://dnlot3wp15dj7" path="res://UI/main_screen.png" id="2_e2lxm"]
+[ext_resource type="Texture2D" uid="uid://ci3xce365jo0t" path="res://UI/Large Buttons/Colored Large Buttons/Start  col_Button.png" id="3_p7iar"]
+[ext_resource type="Texture2D" uid="uid://chrds05ccj1jh" path="res://UI/Large Buttons/Large Buttons/Start Button.png" id="4_8qkx4"]
+[ext_resource type="Texture2D" uid="uid://dq1u448ww8w8g" path="res://UI/Large Buttons/Colored Large Buttons/Exit  col_Button.png" id="5_53jbc"]
+[ext_resource type="Texture2D" uid="uid://b3a5j4w16lpuf" path="res://UI/Large Buttons/Large Buttons/Exit Button.png" id="6_j2tcm"]
+[ext_resource type="AudioStream" uid="uid://dmwco8krhunxo" path="res://Sounds/silentsuspicions.mp3" id="7_bk1jf"]
+[ext_resource type="FontFile" uid="uid://we3g4eb260so" path="res://UI/Font/kenvector_future.ttf" id="8_nv7up"]
+[ext_resource type="AudioStream" uid="uid://bay3p4d5ujdfm" path="res://Sounds/Audio/bong_001.ogg" id="9_hdbgr"]
+[ext_resource type="AudioStream" uid="uid://bhawaf4x3xd6h" path="res://Sounds/Audio/confirmation_001.ogg" id="10_piofd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_578n6"]
+texture = ExtResource("3_p7iar")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uhjwc"]
+texture = ExtResource("4_8qkx4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tdraq"]
+texture = ExtResource("4_8qkx4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_51c2p"]
+texture = ExtResource("5_53jbc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bgsx4"]
+texture = ExtResource("6_j2tcm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rt7vw"]
+texture = ExtResource("6_j2tcm")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i104q")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_e2lxm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.502
+anchor_right = 0.5
+anchor_bottom = 0.502
+offset_left = -73.0
+offset_top = 27.84
+offset_right = 74.0
+offset_bottom = 107.84
+scale = Vector2(2.5415, 2.9325)
+pivot_offset = Vector2(72.6343, 39.3862)
+alignment = 1
+
+[node name="play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_578n6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_uhjwc")
+theme_override_styles/focus = SubResource("StyleBoxTexture_tdraq")
+
+[node name="exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_51c2p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bgsx4")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rt7vw")
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_bk1jf")
+autoplay = true
+
+[node name="best_score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1512.0
+offset_top = 432.0
+offset_right = 1800.0
+offset_bottom = 883.0
+theme_override_fonts/font = ExtResource("8_nv7up")
+theme_override_font_sizes/font_size = 81
+text = "0"
+horizontal_alignment = 1
+
+[node name="Hover" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_hdbgr")
+volume_db = 7.924
+
+[node name="Pressed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_piofd")
+
+[connection signal="focus_entered" from="VBoxContainer/play" to="." method="_on_play_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/exit" to="." method="_on_exit_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]

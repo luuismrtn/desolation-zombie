@@ -57,7 +57,7 @@ vertical_alignment = 1
 [node name="Timer" type="Timer" parent="VBoxContainer/time/time_label"]
 autostart = true
 
-[node name="sand_clock" type="TextureRect" parent="VBoxContainer/time"]
+[node name="sand_clock_icon" type="TextureRect" parent="VBoxContainer/time"]
 layout_mode = 2
 texture = ExtResource("6_qy2rg")
 expand_mode = 2
@@ -74,7 +74,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/score"]
+[node name="skull_icon" type="TextureRect" parent="VBoxContainer/score"]
 layout_mode = 2
 texture = ExtResource("7_d15qb")
 expand_mode = 2
@@ -91,7 +91,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ammo"]
+[node name="ammo_icon" type="TextureRect" parent="VBoxContainer/ammo"]
 layout_mode = 2
 texture = ExtResource("8_mm2in")
 expand_mode = 2

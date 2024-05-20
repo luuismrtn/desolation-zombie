@@ -1,6 +1,6 @@
 extends Node
 
-@onready var pause_scene: PackedScene = preload("res://Escenas/pause.tscn")
+@onready var pause_scene: PackedScene = preload("res://Scenes/pause.tscn")
 var pause_menu
 var paused: bool = false
 
@@ -9,7 +9,7 @@ var puntos: int
 var vida: int
 
 var maps = ["Bunker", "Cottage"]
-var mapa = "Cottage"
+var mapa: String
 
 var num_round = 1
 var global_points: int
@@ -23,7 +23,7 @@ func _ready():
 
 func start():
 	var selected_map = maps[randi() % maps.size()]
-	var scene_path = "res://Escenas/" + selected_map + ".tscn"
+	var scene_path = "res://Scenes/" + selected_map + ".tscn"
 	mapa = selected_map
 	
 	segundos = 20
