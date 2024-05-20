@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d07lovjii042w"]
+[gd_scene load_steps=14 format=3 uid="uid://d07lovjii042w"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_s80hl"]
 [ext_resource type="Texture2D" uid="uid://cqk6g2dqb3otj" path="res://Sprites/Player/Jugador con pistola.png" id="2_4hqbr"]
@@ -32,11 +32,14 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fr8lq"]
-radius = 22.0
+radius = 21.0238
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u5ame"]
+radius = 24.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 10
-collision_mask = 6
+collision_mask = 4
 input_pickable = true
 script = ExtResource("1_s80hl")
 speed = 200
@@ -57,7 +60,6 @@ position = Vector2(34, 15)
 gizmo_extents = 6.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_fr8lq")
 
 [node name="damage_detection" type="Area2D" parent="."]
@@ -65,8 +67,7 @@ collision_mask = 6
 input_pickable = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="damage_detection"]
-position = Vector2(1, 0)
-shape = SubResource("CircleShape2D_fr8lq")
+shape = SubResource("CircleShape2D_u5ame")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
