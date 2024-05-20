@@ -17,11 +17,16 @@ var strong: bool
 var damage: int
 var round_amp = Global.num_round - 1
 
+var active = false
+
 ## Zombie damage amount
 var strong_probrability = 0.7 + (round_amp * 0.05)
 
 ## Function called when the node is added to the scene
 func _ready():
+	$ZombieSkin.visible = false
+	$Spawning/SpawnTime.start(0.6)
+	$Spawning.play()
 	if(randf_range(0,1) > strong_probrability):
 		strong = true
 		damage = 10 + (round_amp * 2)
@@ -35,18 +40,29 @@ func _ready():
 
 ## The below function controls the zombies physics
 func _physics_process(delta):
-	var direction = Vector2()
-	
-	navigation_agent_2d.target_position = target.global_position
-	
-	direction = navigation_agent_2d.get_next_path_position() - global_position
-	direction = direction.normalized()
-	
-	velocity = velocity.lerp(direction * speed, accel * delta)
-	
-	move_and_slide()
-	$ZombieSkin/AnimatedSprite2D.play()
-	
-	var angle_to_player = direction.angle()
-	rotation = angle_to_player
+	if active:
+		var direction = Vector2()
+		
+		navigation_agent_2d.target_position = target.global_position
+		
+		direction = navigation_agent_2d.get_next_path_position() - global_position
+		direction = direction.normalized()
+		
+		velocity = velocity.lerp(direction * speed, accel * delta)
+		
+		move_and_slide()
+		$ZombieSkin/AnimatedSprite2D.play()
+		
+		var angle_to_player = direction.angle()
+		rotation = angle_to_player
 
+
+
+func _on_spawn_time_timeout():
+	if(!$ZombieSkin.visible):
+		$ZombieSkin.visible = true
+		$Spawning/SpawnTime.start(0.6)
+	else:
+		$Spawning.stop()
+		$Spawning.visible = false
+		active = true

@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://nfef4utaex2p"]
+[gd_scene load_steps=12 format=3 uid="uid://nfef4utaex2p"]
 
 [ext_resource type="Script" path="res://Scripts/Zombie.gd" id="1_ev0ku"]
 [ext_resource type="Texture2D" uid="uid://dkjssiv70cqp7" path="res://Sprites/Zombie/Zombi debil.png" id="2_tsd1g"]
 [ext_resource type="Texture2D" uid="uid://dxqnn4kvt1fsi" path="res://Sprites/Zombie/Zombi debil pie izquierdo.png.png" id="3_707jk"]
 [ext_resource type="Texture2D" uid="uid://hh4dts85ai24" path="res://Sprites/Zombie/Zombi debil pie derecho.png.png" id="4_timxf"]
+[ext_resource type="Texture2D" uid="uid://db1sciwhdduh1" path="res://Sprites/Zombie/spawn4.png" id="5_y4wtt"]
+[ext_resource type="Texture2D" uid="uid://b6bc24v5lh6b2" path="res://Sprites/Zombie/spawn3.png" id="6_3mfp0"]
+[ext_resource type="Texture2D" uid="uid://ciftlyenw6gvf" path="res://Sprites/Zombie/spawn2.png" id="7_qb2fs"]
+[ext_resource type="Texture2D" uid="uid://ccjkla5lm6wgx" path="res://Sprites/Zombie/spawn1.png" id="8_yyrdu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ksi1s"]
 radius = 20.5
@@ -22,6 +26,35 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_timxf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nljxi"]
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": ExtResource("5_y4wtt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3mfp0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qb2fs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yyrdu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qb2fs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3mfp0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y4wtt")
 }],
 "loop": true,
 "name": &"default",
@@ -51,3 +84,12 @@ sprite_frames = SubResource("SpriteFrames_hfj4y")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 navigation_layers = 3
 path_postprocessing = 1
+
+[node name="Spawning" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -1.7486e-07)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_nljxi")
+
+[node name="SpawnTime" type="Timer" parent="Spawning"]
+
+[connection signal="timeout" from="Spawning/SpawnTime" to="." method="_on_spawn_time_timeout"]
