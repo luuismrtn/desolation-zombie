@@ -9,9 +9,8 @@ func _process(delta):
 		$"Next".position.x += 20
 	if($"Level".position.x > 1142):
 		$"Level".position.x -= 20
-	if($"Label".position.y > 736):
-		$"Label".position.y -= 20
-
+	if($Rounds.position.y > 736):
+		$Rounds.position.y -= 20
 
 func _on_timer_timeout():
 	var maps = Global.maps

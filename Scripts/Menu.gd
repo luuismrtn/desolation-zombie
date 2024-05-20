@@ -3,6 +3,7 @@ extends Control
 func _ready():
 	$MusicaMenu.play()
 	randomize()
+	$best_score.text = str(Global.best_score)
 
 func _on_jugar_pressed():
 	Global.start()

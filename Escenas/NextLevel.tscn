@@ -31,7 +31,7 @@ position = Vector2(2567, 280)
 scale = Vector2(0.863672, 1.03923)
 texture = ExtResource("4_qlp3u")
 
-[node name="Label" type="Label" parent="."]
+[node name="Rounds" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -44,7 +44,7 @@ offset_right = 355.0
 offset_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_eu1ji")
 theme_override_font_sizes/font_size = 161
 text = "ROUND "
