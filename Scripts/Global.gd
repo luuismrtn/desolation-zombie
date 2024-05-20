@@ -26,9 +26,9 @@ func start():
 	var scene_path = "res://Scenes/" + selected_map + ".tscn"
 	map = selected_map
 	
-	seconds = 20
+	seconds = 5
 	points = 0
-	health = 10
+	health = 25
 	
 	if num_round == 1:
 		global_points = 0

@@ -7,6 +7,7 @@ var spawnPoints
 var random = RandomNumberGenerator.new()
 
 func _ready():
+	set_difficulty()
 	choose_spawnpoint()
 	random.randomize()
 	spawn_zombie()
@@ -21,6 +22,12 @@ func spawn_zombie():
 
 func _on_timer_timeout():
 	spawn_zombie()
+	
+func set_difficulty():
+	if (Global.num_round < 10):
+		$Timer.wait_time = 1 - Global.num_round * 0.08
+	else:
+		$Timer.wait_time = 1 - 10 * 0.08
 	
 func choose_spawnpoint():
 	if Global.map == "Bunker":

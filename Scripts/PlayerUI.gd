@@ -25,6 +25,7 @@ func update_score():
 
 func update_health():
 	$health_bar.value = Global.health
+	$VBoxContainer/score2/vida.text = str(Global.health)
 	
 func update_ammo():
 	$VBoxContainer/ammo/ammo_label.text = str(player.ammo)
