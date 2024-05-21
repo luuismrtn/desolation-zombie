@@ -10,4 +10,5 @@ func _on_resume_pressed():
 ## The below function quit the game when the quit button is pressed
 func _on_quit_pressed():
 	Global.pauseMenu()
+	Global.num_round = 1
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")

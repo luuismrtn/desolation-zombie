@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dtbx3g4mu3f27"]
+[gd_scene load_steps=19 format=3 uid="uid://dtbx3g4mu3f27"]
 
 [ext_resource type="Script" path="res://Scripts/Pause.gd" id="1_571x7"]
 [ext_resource type="Texture2D" uid="uid://bd51ckatrangp" path="res://UI/pause_screen.png" id="2_ygtjm"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://65ogd8o3vx0f" path="res://UI/Large Buttons/Colored Large Buttons/Resume  col_Button.png" id="4_1f2t1"]
 [ext_resource type="Texture2D" uid="uid://c3sod5i1b1jel" path="res://UI/Large Buttons/Large Buttons/Quit Button.png" id="5_jao6g"]
 [ext_resource type="Texture2D" uid="uid://cn7ojrppimgxf" path="res://UI/Large Buttons/Colored Large Buttons/Quit  col_Button.png" id="6_gfwpf"]
+[ext_resource type="Texture2D" uid="uid://djfi56hb760rg" path="res://Sprites/Info/volume_icon.svg" id="7_2irtf"]
+[ext_resource type="Script" path="res://Scripts/Volume_slider.gd" id="8_wwskq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r40ys"]
 texture = ExtResource("3_ndqex")
@@ -30,6 +32,20 @@ texture = ExtResource("5_jao6g")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_no8j2"]
 texture = ExtResource("6_gfwpf")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yoosp"]
+bg_color = Color(0.639216, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxfqc"]
+bg_color = Color(0.639216, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="Pause_Menu" type="CanvasLayer"]
 layer = 6
@@ -74,6 +90,31 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_pc5vx")
 theme_override_styles/hover = SubResource("StyleBoxTexture_s0vnb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_g81us")
 theme_override_styles/focus = SubResource("StyleBoxTexture_no8j2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 833.0
+offset_top = 823.0
+offset_right = 1087.0
+offset_bottom = 892.0
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_2irtf")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="volume_slider" type="HSlider" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_yoosp")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_hxfqc")
+max_value = 1.0
+step = 0.001
+script = ExtResource("8_wwskq")
+bus_name = "Volume"
 
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

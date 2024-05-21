@@ -47,6 +47,7 @@ func _on_exit_focus_entered():
 
 ## The below function controls the button appearance
 func _on_home_pressed():
+	Global.num_round = 1
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 
 ## The below function controls the button appearance

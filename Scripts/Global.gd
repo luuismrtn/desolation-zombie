@@ -8,6 +8,8 @@ extends Node
 ## Variable that controls pause
 var pause_menu
 
+var scene_path: String
+
 ## Indicates if game is paused or not
 var paused: bool = false
 
@@ -24,7 +26,7 @@ var health: int
 var maps = ["bunker", "cottage", "home"]
 
 ## The name of the current map
-var map: String
+var map: String = "home"
 
 ## The current round_number
 var num_round = 1
@@ -56,11 +58,9 @@ func _ready():
 
 ## The below function starts a new round
 func start():
-	var selected_map = maps[randi() % maps.size()]
-	var scene_path = "res://Scenes/" + selected_map + ".tscn"
-	map = selected_map
+	choose_map()
 	
-	seconds = 30
+	seconds = 5
 	points = 0
 	health = 100
 	
@@ -68,6 +68,18 @@ func start():
 		global_points = 0
 		
 	get_tree().change_scene_to_file(scene_path)
+
+## The below function chooses a random map.
+func choose_map():
+	var same = true
+	var selected_map
+	
+	while same:
+		selected_map = maps[randi() % maps.size()]
+		scene_path = "res://Scenes/" + selected_map + ".tscn"
+		if map != selected_map:
+			map = selected_map
+			same = false
 
 ## The below function saves info
 func save_info():
@@ -89,7 +101,7 @@ func load_info():
 		save_info()
 		load_info()
 
-## R
+## The below function captures the input
 func _input(event):
 	if event.is_action_pressed("pause"):
 		pauseMenu()
