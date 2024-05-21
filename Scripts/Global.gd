@@ -89,11 +89,10 @@ func load_info():
 		save_info()
 		load_info()
 
-## The below function is called every frame, processes input for pausing the game
-func _process(_delta):
-	if Input.is_action_just_pressed("pause"):
+## R
+func _input(event):
+	if event.is_action_pressed("pause"):
 		pauseMenu()
-		
 
 ## The below function toggles the pause menu and game state
 func pauseMenu():
