@@ -43,9 +43,6 @@ var volume_value: float
 ## Function called when the node is added to the scene
 func _ready():
 	load_info()
-	pause_menu = pause_scene.instantiate()
-	add_child(pause_menu)
-	pause_menu.visible = false
 	
 	var current_scene = get_tree().current_scene.name
 	if current_scene in maps:
@@ -60,7 +57,7 @@ func _ready():
 func start():
 	choose_map()
 	
-	seconds = 5
+	seconds = 30
 	points = 0
 	health = 100
 	
@@ -111,12 +108,13 @@ func pauseMenu():
 	var current_scene = get_tree().current_scene.name
 	if current_scene in maps:
 		if paused:
-			pause_menu.visible = false
+			pause_menu.queue_free()
 			Engine.time_scale = 1
 			var crosshair_texture = load("res://Sprites/crosshair.png")
 			Input.set_custom_mouse_cursor(crosshair_texture, Input.CURSOR_ARROW, Vector2(22, 22))
 		else:
-			pause_menu.visible = true
+			pause_menu = pause_scene.instantiate()
+			add_child(pause_menu)
 			Engine.time_scale = 0
 			var cursor_texture = load("res://Sprites/cursor.png")
 			Input.set_custom_mouse_cursor(cursor_texture, Input.CURSOR_ARROW, Vector2(15, 10))
