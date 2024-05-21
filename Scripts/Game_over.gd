@@ -16,6 +16,9 @@ func _ready():
 	
 	$your_score.text = str(score)
 	$best_score.text = str(Global.best_score)
+	
+	var cursor_texture = load("res://Sprites/cursor.png")
+	Input.set_custom_mouse_cursor(cursor_texture, Input.CURSOR_ARROW, Vector2(15, 10))
 
 ## The below function restart the game
 func _on_restart_pressed():

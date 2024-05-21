@@ -43,7 +43,7 @@ func _ready():
 	load_info()
 	pause_menu = pause_scene.instantiate()
 	add_child(pause_menu)
-	pause_menu.hide()
+	pause_menu.visible = false
 	
 	var current_scene = get_tree().current_scene.name
 	if current_scene in maps:
@@ -100,10 +100,14 @@ func pauseMenu():
 	var current_scene = get_tree().current_scene.name
 	if current_scene in maps:
 		if paused:
-			pause_menu.hide()
+			pause_menu.visible = false
 			Engine.time_scale = 1
+			var crosshair_texture = load("res://Sprites/crosshair.png")
+			Input.set_custom_mouse_cursor(crosshair_texture, Input.CURSOR_ARROW, Vector2(22, 22))
 		else:
-			pause_menu.show()
+			pause_menu.visible = true
 			Engine.time_scale = 0
+			var cursor_texture = load("res://Sprites/cursor.png")
+			Input.set_custom_mouse_cursor(cursor_texture, Input.CURSOR_ARROW, Vector2(15, 10))
 		
 		paused = !paused

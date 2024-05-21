@@ -6,6 +6,9 @@ extends Control
 func _ready():
 	$music.play()
 	$best_score.text = str(Global.best_score)
+	
+	var cursor_texture = load("res://Sprites/cursor.png")
+	Input.set_custom_mouse_cursor(cursor_texture, Input.CURSOR_ARROW, Vector2(15, 10))
 
 ## The below function starts the scene global when pressed button play
 func _on_play_pressed():
