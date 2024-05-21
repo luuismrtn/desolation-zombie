@@ -9,7 +9,7 @@ func _ready():
 	$Win.play()
 
 ## The below function controls the position of the player in the new round
-func _process(delta):
+func _process(_delta):
 	if($"Next".position.x < 828):
 		$"Next".position.x += 20
 	if($"Level".position.x > 1142):

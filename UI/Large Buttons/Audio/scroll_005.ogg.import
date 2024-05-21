@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ylep0qc6amsw"
+path="res://.godot/imported/scroll_005.ogg-3a324a71449d28fc6a12cc4b83692d1f.oggvorbisstr"
+
+[deps]
+
+source_file="res://UI/Large Buttons/Audio/scroll_005.ogg"
+dest_files=["res://.godot/imported/scroll_005.ogg-3a324a71449d28fc6a12cc4b83692d1f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

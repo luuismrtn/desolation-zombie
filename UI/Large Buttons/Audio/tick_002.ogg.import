@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d3lhnv8owsp7d"
+path="res://.godot/imported/tick_002.ogg-22456d57dea7067ccc47b397858612e0.oggvorbisstr"
+
+[deps]
+
+source_file="res://UI/Large Buttons/Audio/tick_002.ogg"
+dest_files=["res://.godot/imported/tick_002.ogg-22456d57dea7067ccc47b397858612e0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

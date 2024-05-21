@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bdupaqovdyc0n"
+path="res://.godot/imported/scratch_003.ogg-fab56456eee30c8dd24152ec131f701e.oggvorbisstr"
+
+[deps]
+
+source_file="res://UI/Large Buttons/Audio/scratch_003.ogg"
+dest_files=["res://.godot/imported/scratch_003.ogg-fab56456eee30c8dd24152ec131f701e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -21,7 +21,7 @@ var points: int
 var health: int
 
 ## A list of maps in the game
-var maps = ["Bunker", "Cottage", "Home"]
+var maps = ["bunker", "cottage", "home"]
 
 ## The name of the current map
 var map: String
@@ -74,7 +74,7 @@ func load_best_score():
 		load_best_score()
 
 ## The below function is called every frame, processes input for pausing the game
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
 		

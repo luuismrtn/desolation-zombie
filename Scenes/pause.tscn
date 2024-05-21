@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtbx3g4mu3f27"]
+[gd_scene load_steps=15 format=3 uid="uid://dtbx3g4mu3f27"]
 
 [ext_resource type="Script" path="res://Scripts/Pause.gd" id="1_571x7"]
 [ext_resource type="Texture2D" uid="uid://bd51ckatrangp" path="res://UI/pause_screen.png" id="2_ygtjm"]
@@ -13,7 +13,10 @@ texture = ExtResource("3_ndqex")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43pn1"]
 texture = ExtResource("4_1f2t1")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4io1e"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1rv2i"]
+texture = ExtResource("3_ndqex")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_om56c"]
 texture = ExtResource("4_1f2t1")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pc5vx"]
@@ -21,6 +24,9 @@ texture = ExtResource("5_jao6g")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s0vnb"]
 texture = ExtResource("6_gfwpf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g81us"]
+texture = ExtResource("5_jao6g")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_no8j2"]
 texture = ExtResource("6_gfwpf")
@@ -57,7 +63,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxTexture_r40ys")
 theme_override_styles/hover = SubResource("StyleBoxTexture_43pn1")
-theme_override_styles/focus = SubResource("StyleBoxTexture_4io1e")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1rv2i")
+theme_override_styles/focus = SubResource("StyleBoxTexture_om56c")
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
@@ -65,6 +72,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxTexture_pc5vx")
 theme_override_styles/hover = SubResource("StyleBoxTexture_s0vnb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_g81us")
 theme_override_styles/focus = SubResource("StyleBoxTexture_no8j2")
 
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]

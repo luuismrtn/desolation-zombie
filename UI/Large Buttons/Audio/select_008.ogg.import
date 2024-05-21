@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://djlokl25unjvr"
+path="res://.godot/imported/select_008.ogg-25362dd94b096259f2482fa165b995de.oggvorbisstr"
+
+[deps]
+
+source_file="res://UI/Large Buttons/Audio/select_008.ogg"
+dest_files=["res://.godot/imported/select_008.ogg-25362dd94b096259f2482fa165b995de.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

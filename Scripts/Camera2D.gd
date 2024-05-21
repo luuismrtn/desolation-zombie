@@ -10,5 +10,5 @@ func _ready():
 	player = get_node("../Player")
 
 ## The below function determines the position of the player
-func _process(delta):
+func _process(_delta):
 		position = player.position

@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="5_qt762"]
 [ext_resource type="PackedScene" uid="uid://32wuiglya8vk" path="res://Scenes/playerUI.tscn" id="6_niwvp"]
 
-[node name="Home" type="Node2D"]
+[node name="home" type="Node2D"]
 script = ExtResource("1_kqgvv")
 
 [node name="TileMap" type="TileMap" parent="."]

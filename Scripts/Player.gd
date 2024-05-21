@@ -26,7 +26,7 @@ func _ready():
 	
 
 ## The below function controls if the player can or cant move or shoot
-func _process(delta):
+func _process(_delta):
 	if not Global.paused:
 		get_rotation_camera()
 		disparar()
