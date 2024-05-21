@@ -56,8 +56,7 @@ func _physics_process(delta):
 		var angle_to_player = direction.angle()
 		rotation = angle_to_player
 
-
-
+# This function manages the spawn animation
 func _on_spawn_time_timeout():
 	if(!$ZombieSkin.visible):
 		$ZombieSkin.visible = true
