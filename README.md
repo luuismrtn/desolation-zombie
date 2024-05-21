@@ -34,8 +34,39 @@ Zombie: Escena de los diferentes tipos de zombies.
 Ejecución del Proyecto
 Para ejecutar el proyecto, asegúrate de tener instalado Godot Engine. Luego, abre el archivo principal del proyecto en Godot y ejecútalo desde el editor.
 
+Para ejecutar el juego sin descargar Godot Engine puedes decargarlo en itch.io: https://luuismrtn.itch.io/desolation-zombie
+Si quieres jugar en web, visitad este enlace: https://luuismrtn.itch.io/desolation-zombie-web-edition
+
 Contribuciones
 ¡Las contribuciones son bienvenidas! Si tienes ideas para mejorar el juego o encontrar algún error, no dudes en abrir un issue o enviar un pull request.
 
 Licencia
 Este proyecto está bajo la licencia [GNU GENERAL PUBLIC LICENSE].
+
+
+---------------------------------------
+Puntos a los que optamos:
+1. Git
+  1.1. Software libre (Punto extra)
+2. Exportar a .exe
+  2.1. Publicar el juego en internet (Punto extra)
+  2.2. Build web (Punto extra)
+3. Música de fondo.
+4. Efectos de sonido
+5. Menú principal
+6. Volver a empezar
+8. Legibilidad
+10. Sistema de guardado
+11. Opciones de volumen
+13. Estructura de proyecto bien organizada
+14. Código bien presentado
+15. Documentación
+16. GDD correcto
+18. Entrega anticipada
+19. Apartado excelente
+  19.1 Jugabilidad, originalidad, e implementación.
+  19.2 Experiencia de usuario y accesibilidad.
+  19.3 Arte.
+  19.4 Sonido.
+
+Los tres integrantes hemos hecho las mismas funciones y el mismo volumen de trabajo.
