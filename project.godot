@@ -91,3 +91,7 @@ pause={
 2d_physics/layer_2="enemies"
 2d_navigation/layer_2="Out"
 2d_physics/layer_3="wall"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
