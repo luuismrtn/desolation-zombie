@@ -47,21 +47,25 @@ Este proyecto está bajo la licencia [GNU GENERAL PUBLIC LICENSE].
 ---------------------------------------
 Puntos a los que optamos:
 1. Git
-  1.1. Software libre (Punto extra)
+1.1. Software libre (Punto extra)
 2. Exportar a .exe
-  2.1. Publicar el juego en internet (Punto extra)
-  2.2. Build web (Punto extra)
+2.1. Publicar el juego en internet (Punto extra)
+2.2. Build web (Punto extra)
 3. Música de fondo.
 4. Efectos de sonido
 5. Menú principal
 6. Volver a empezar
+7. NO
 8. Legibilidad
+9. NO
 10. Sistema de guardado
 11. Opciones de volumen
+12. NO
 13. Estructura de proyecto bien organizada
 14. Código bien presentado
 15. Documentación
-16. GDD correcto
+16. NO
+17. GDD correcto
 18. Entrega anticipada
 19. Apartado excelente
   19.1 Jugabilidad, originalidad, e implementación.
