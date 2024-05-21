@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://b3a5j4w16lpuf" path="res://UI/Large Buttons/Large Buttons/Exit Button.png" id="6_j2tcm"]
 [ext_resource type="AudioStream" uid="uid://dmwco8krhunxo" path="res://Sounds/silentsuspicions.mp3" id="7_bk1jf"]
 [ext_resource type="FontFile" uid="uid://we3g4eb260so" path="res://UI/Font/kenvector_future.ttf" id="8_nv7up"]
-[ext_resource type="AudioStream" uid="uid://bay3p4d5ujdfm" path="res://Sounds/Audio/bong_001.ogg" id="9_hdbgr"]
-[ext_resource type="AudioStream" uid="uid://bhawaf4x3xd6h" path="res://Sounds/Audio/confirmation_001.ogg" id="10_piofd"]
+[ext_resource type="AudioStream" uid="uid://bay3p4d5ujdfm" path="res://Sounds/Audio Buttons/bong_001.ogg" id="9_hdbgr"]
+[ext_resource type="AudioStream" uid="uid://bhawaf4x3xd6h" path="res://Sounds/Audio Buttons/confirmation_001.ogg" id="10_piofd"]
 [ext_resource type="Script" path="res://Scripts/Volume_slider.gd" id="11_7gj27"]
 [ext_resource type="Texture2D" uid="uid://djfi56hb760rg" path="res://Sprites/Info/volume_icon.svg" id="11_ysvh5"]
 

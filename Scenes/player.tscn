@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dhrpnp4apiegu" path="res://Sprites/Player/Jugador pie izquierdo.png" id="4_m82al"]
 [ext_resource type="AudioStream" uid="uid://ggvxsg1nqkey" path="res://Sounds/gunshot.mp3" id="5_0amqd"]
 [ext_resource type="AudioStream" uid="uid://b2gwm2aa2qerj" path="res://Sounds/empty-gun.mp3" id="5_s87fx"]
-[ext_resource type="AudioStream" uid="uid://crnqgu0jp5hq4" path="res://Sounds/steps_2.mp3" id="7_36jfi"]
+[ext_resource type="AudioStream" uid="uid://crnqgu0jp5hq4" path="res://Sounds/steps.mp3" id="7_018lc"]
 [ext_resource type="AudioStream" uid="uid://vbbxutapmd1a" path="res://Sounds/hit_sound.mp3" id="8_0stcj"]
 [ext_resource type="Texture2D" uid="uid://b2dx2l7er16le" path="res://Sprites/gunfire.png" id="8_w48dk"]
 [ext_resource type="AudioStream" uid="uid://uthyi14o6ssp" path="res://Sounds/epic.mp3" id="9_ylh1j"]
@@ -86,7 +86,8 @@ max_polyphony = 10
 bus = &"Volume"
 
 [node name="Steps" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_36jfi")
+stream = ExtResource("7_018lc")
+volume_db = 5.0
 bus = &"Volume"
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="."]

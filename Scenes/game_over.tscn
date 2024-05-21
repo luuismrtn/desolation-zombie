@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dbkkkxisyejo1" path="res://UI/Large Buttons/Large Buttons/Menu Button.png" id="6_kt0pc"]
 [ext_resource type="Texture2D" uid="uid://dq1u448ww8w8g" path="res://UI/Large Buttons/Colored Large Buttons/Exit  col_Button.png" id="7_sgxvo"]
 [ext_resource type="Texture2D" uid="uid://b3a5j4w16lpuf" path="res://UI/Large Buttons/Large Buttons/Exit Button.png" id="8_2gxma"]
-[ext_resource type="AudioStream" uid="uid://bay3p4d5ujdfm" path="res://Sounds/Audio/bong_001.ogg" id="9_3mo41"]
-[ext_resource type="AudioStream" uid="uid://bhawaf4x3xd6h" path="res://Sounds/Audio/confirmation_001.ogg" id="10_bk2t3"]
+[ext_resource type="AudioStream" uid="uid://bay3p4d5ujdfm" path="res://Sounds/Audio Buttons/bong_001.ogg" id="9_3mo41"]
+[ext_resource type="AudioStream" uid="uid://bhawaf4x3xd6h" path="res://Sounds/Audio Buttons/confirmation_001.ogg" id="10_bk2t3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rwtjs"]
 texture = ExtResource("5_2wntg")
@@ -89,6 +89,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="death_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_t41r8")
+volume_db = 3.0
+pitch_scale = 0.57
 bus = &"Volume"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

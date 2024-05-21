@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.png"
 
+[audio]
+
+buses/default_bus_layout="res://Sounds/default_bus_layout.tres"
+
 [autoload]
 
 Global="*res://Scripts/Global.gd"
@@ -25,6 +29,16 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 mouse_cursor/custom_image="res://Sprites/cursor.png"
 mouse_cursor/custom_image_hotspot=Vector2(16, 16)
+
+[file_customization]
+
+folder_colors={
+"res://Scenes/": "green",
+"res://Scripts/": "red",
+"res://Sounds/": "yellow",
+"res://Sprites/": "blue",
+"res://UI/": "purple"
+}
 
 [input]
 

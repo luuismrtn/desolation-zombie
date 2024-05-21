@@ -57,6 +57,7 @@ autostart = true
 
 [node name="Win" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_wq2vv")
+pitch_scale = 0.8
 bus = &"Volume"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
