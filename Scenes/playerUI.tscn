@@ -37,10 +37,11 @@ texture = ExtResource("5_ai347")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -140.0
-offset_bottom = 296.0
+offset_left = -182.265
+offset_top = 26.0
+offset_right = -42.2651
+offset_bottom = 322.0
 grow_horizontal = 0
-alignment = 1
 
 [node name="time" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

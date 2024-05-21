@@ -12,7 +12,7 @@ func _ready():
 	
 	if (score > Global.best_score):
 		Global.best_score = score
-		Global.save_best_score()
+		Global.save_info()
 	
 	$your_score.text = str(score)
 	$best_score.text = str(Global.best_score)

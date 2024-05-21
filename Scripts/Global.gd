@@ -35,12 +35,24 @@ var global_points: int
 ## The highest score recorder
 var best_score: int
 
+## The volume value
+var volume_value: float
+
 ## Function called when the node is added to the scene
 func _ready():
-	load_best_score()
+	load_info()
 	pause_menu = pause_scene.instantiate()
 	add_child(pause_menu)
 	pause_menu.hide()
+	
+	var current_scene = get_tree().current_scene.name
+	if current_scene in maps:
+		var crosshair_texture = load("res://Sprites/crosshair.png")
+		Input.set_custom_mouse_cursor(crosshair_texture, Input.CURSOR_ARROW, Vector2(22, 22))
+	else:
+		var cursor_texture = load("res://Sprites/cursor.png")
+		Input.set_custom_mouse_cursor(cursor_texture, Input.CURSOR_ARROW, Vector2(15, 10))
+	
 
 ## The below function starts a new round
 func start():
@@ -57,21 +69,25 @@ func start():
 		
 	get_tree().change_scene_to_file(scene_path)
 
-## The below function saves the best score achieved
-func save_best_score():
-	var save_score = FileAccess.open("user://best_score.save", FileAccess.WRITE)
-	save_score.store_64(best_score)
-	save_score.close()
+## The below function saves info
+func save_info():
+	var info = FileAccess.open("user://game_info.save", FileAccess.WRITE)
+	info.store_64(best_score)
+	info.store_float(volume_value)
+	info.close()
 
-## The below function load the best score
-func load_best_score():
-	if FileAccess.file_exists("user://best_score.save"):
-		var save_score = FileAccess.open("user://best_score.save", FileAccess.READ)
-		best_score = save_score.get_64()
-		save_score.close()
+## The below function load info
+func load_info():
+	if FileAccess.file_exists("user://game_info.save"):
+		var info = FileAccess.open("user://game_info.save", FileAccess.READ)
+		best_score = info.get_64()
+		volume_value = info.get_float()
+		info.close()
 	else:
-		save_best_score()
-		load_best_score()
+		best_score = 0
+		volume_value = 100
+		save_info()
+		load_info()
 
 ## The below function is called every frame, processes input for pausing the game
 func _process(_delta):
