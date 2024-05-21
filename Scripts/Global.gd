@@ -57,7 +57,7 @@ func _ready():
 func start():
 	choose_map()
 	
-	seconds = 5
+	seconds = 30
 	points = 0
 	health = 100
 	
