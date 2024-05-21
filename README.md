@@ -74,3 +74,9 @@ Puntos a los que optamos:
   19.4 Sonido.
 
 Los tres integrantes hemos hecho las mismas funciones y el mismo volumen de trabajo.
+
+Git --> https://github.com/luuismrtn/desolation-zombie.git
+
+Exe(Itch.io) --> https://luuismrtn.itch.io/desolation-zombie
+
+Web(Itch.io) --> https://luuismrtn.itch.io/desolation-zombie-web-edition
